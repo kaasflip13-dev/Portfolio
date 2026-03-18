@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naam Achternaam | Portfolio</title>
+    <title>Ivan Aubel | O&O Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <header>
         <nav>
-            <div class="logo">Mijn Portfolio</div>
+            <div class="logo">Ivan Aubel</div>
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#over">Over mij</a></li>
-                <li><a href="#projecten">Projecten</a></li>
+                <li><a href="#over">Over Mij</a></li>
+                <li><a href="#projecten">O&O Projecten</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -23,53 +22,62 @@
 
     <main>
         <section id="home" class="hero">
-            <h1>Hallo, ik ben <span class="highlight">Naam</span></h1>
-            <p>Een gepassioneerde [Jouw Functie, bijv. Web Designer] uit Nederland.</p>
-            <a href="#projecten" class="btn">Bekijk mijn werk</a>
+            <h1>Hallo, ik ben <span class="highlight">Ivan Aubel</span></h1>
+            <p>Technasium leerling & aspirant ontwerper</p>
+            <p class="sub-text">Gespecialiseerd in het oplossen van technische vraagstukken voor O&O.</p>
+            <a href="#projecten" class="btn">Bekijk mijn ontwerpen</a>
         </section>
 
         <section id="over">
-            <h2>Over Mij</h2>
-            <p>Hier kun je kort vertellen wie je bent, wat je doet en welke tools je gebruikt (zoals HTML, CSS, JavaScript of Design software).</p>
+            <div class="container">
+                <h2>Over Mij</h2>
+                <p>Ik ben Ivan, een gedreven student op het Technasium. Tijdens mijn vak <strong>Onderzoek & Ontwerpen</strong> werk ik aan echte opdrachten van bedrijven. Ik hou ervan om complexe problemen te analyseren en om te zetten in werkende prototypes.</p>
+                <div class="skills">
+                    <span>💡 Brainstormen</span>
+                    <span>🛠️ Prototyping</span>
+                    <span>📊 Onderzoek</span>
+                    <span>💻 CAD Tekenen</span>
+                </div>
+            </div>
         </section>
 
-        <section id="projecten">
-            <h2>Mijn Projecten</h2>
+        <section id="projecten" class="dark-section">
+            <h2>Mijn O&O Projecten</h2>
             <div class="project-grid">
                 <article class="project-card">
-                    <img src="project1.jpg" alt="Project 1 preview">
-                    <h3>Project Titel</h3>
-                    <p>Korte beschrijving van wat je hier hebt gebouwd en de gebruikte technieken.</p>
-                    <a href="#">Bekijk Live</a>
+                    <div class="project-img-placeholder">Project 1</div>
+                    <div class="project-content">
+                        <h3>Titel van Opdrachtgever</h3>
+                        <p>Korte uitleg: Wat was het probleem van het bedrijf en welke oplossing heb ik ontworpen?</p>
+                        <span class="tag">Onderzoek</span> <span class="tag">Ontwerp</span>
+                    </div>
                 </article>
 
                 <article class="project-card">
-                    <img src="project2.jpg" alt="Project 2 preview">
-                    <h3>Project Titel</h3>
-                    <p>Korte beschrijving van je tweede succesvolle project.</p>
-                    <a href="#">Bekijk Live</a>
+                    <div class="project-img-placeholder">Project 2</div>
+                    <div class="project-content">
+                        <h3>Prototype Naam</h3>
+                        <p>Beschrijving van het proces: Van Plan van Aanpak tot het uiteindelijke product.</p>
+                        <span class="tag">Techniek</span> <span class="tag">CAD</span>
+                    </div>
                 </article>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Laten we praten</h2>
-            <p>Heb je een vraag of wil je samenwerken? Stuur me een bericht!</p>
-            <form action="#" method="POST">
-                <input type="text" name="name" placeholder="Naam" required>
-                <input type="email" name="email" placeholder="E-mail" required>
-                <textarea name="message" placeholder="Bericht"></textarea>
-                <button type="submit" class="btn">Verstuur</button>
+            <h2>Laten we samenwerken</h2>
+            <p>Interesse in mijn werk of heb je een vraag over een project?</p>
+            <form action="#">
+                <input type="text" placeholder="Jouw Naam" required>
+                <input type="email" placeholder="E-mailadres" required>
+                <textarea placeholder="Waar wil je het over hebben?"></textarea>
+                <button type="submit" class="btn">Stuur Bericht</button>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Naam Achternaam. Gemaakt met passie.</p>
-        <div class="socials">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-        </div>
+        <p>&copy; 2024 Ivan Aubel - Technasium Portfolio</p>
     </footer>
 
 </body>
