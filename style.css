@@ -1,59 +1,300 @@
-/* Voeg deze extra stijlen toe onder je vorige CSS */
+/* 1. Variabelen & Basis Instellingen */
+:root {
+    --primary-color: #2563eb;    /* Technasium Blauw */
+    --secondary-color: #0f172a;  /* Donkergrijs/Blauw */
+    --bg-light: #f8fafc;         /* Achtergrond */
+    --bg-white: #ffffff;
+    --text-main: #334155;        /* Hoofdtekst */
+    --text-muted: #64748b;       /* Onderschriften */
+    --accent: #38bdf8;           /* Lichtblauw accent */
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background-color: var(--bg-light);
+}
+
+/* 2. Navigatie */
+header {
+    background: var(--bg-white);
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    letter-spacing: -0.5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* 3. Hero Sectie (Ivan Aubel Intro) */
+.hero {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.highlight {
+    color: var(--primary-color);
+}
 
 .sub-text {
     font-size: 1.2rem;
-    color: #64748b;
-    margin-top: 0.5rem;
+    color: var(--text-muted);
+    max-width: 600px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.8rem 2.2rem;
+    text-decoration: none;
+    border-radius: 8px;
+    margin-top: 2rem;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* 4. Secties Algemeen */
+section {
+    padding: 6rem 10%;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    color: var(--secondary-color);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* 5. Over Mij & Skills */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .skills {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 30px;
     flex-wrap: wrap;
 }
 
 .skills span {
-    background: #e2e8f0;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
 }
 
+/* 6. Projecten Grid (O&O Focus) */
 .dark-section {
     background-color: #f1f5f9;
 }
 
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
 .project-img-placeholder {
-    height: 200px;
-    background: #cbd5e1;
+    height: 220px;
+    background: var(--secondary-color);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.2rem;
     font-weight: bold;
-    color: #64748b;
+    letter-spacing: 1px;
 }
 
 .project-content {
-    padding: 1.5rem;
+    padding: 1.8rem;
+}
+
+.project-content h3 {
+    margin-bottom: 0.8rem;
+    color: var(--secondary-color);
 }
 
 .tag {
     display: inline-block;
-    background: #2563eb1a;
-    color: #2563eb;
-    padding: 2px 8px;
-    border-radius: 4px;
+    background: #eff6ff;
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 6px;
     font-size: 0.75rem;
-    margin-top: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
+    margin-top: 15px;
+    margin-right: 5px;
+    font-weight: 700;
 }
 
-.container {
-    max-width: 800px;
+/* 7. Contact Formulier */
+form {
+    max-width: 550px;
     margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.9rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f8fafc;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* 8. Footer */
+footer {
+    background: var(--secondary-color);
+    color: white;
     text-align: center;
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* 9. Mobiel Responsive Design */
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 5%;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
 }
