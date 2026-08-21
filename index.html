@@ -1,626 +1,749 @@
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ivan's Portfolio | O&O</title>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Poppins:wght@300;400;500&display=swap"
-		rel="stylesheet">
-	<style>
-		:root {
-			--bg-color: #050a14;
-			--glass-bg: rgba(255, 255, 255, 0.03);
-			--glass-border: rgba(255, 255, 255, 0.1);
-			--glass-blur: 20px;
-			--accent-color: #38bdf8;
-			--text-main: #f1f5f9;
-			--text-muted: #94a3b8;
-			--font-title: 'Plus Jakarta Sans', sans-serif;
-			--font-body: 'Poppins', sans-serif;
-			--pdf-red: #ef4444;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivan's Portfolio | O&O</title>
 
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-		html {
-			scroll-behavior: smooth;
-		}
+    <style>
+        :root {
+            --bg-color: #050a14;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-blur: 20px;
+            --accent-color: #38bdf8;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --font-title: 'Plus Jakarta Sans', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+            --pdf-red: #ef4444;
+        }
 
-		body {
-			font-family: var(--font-body);
-			background-color: var(--bg-color);
-			color: var(--text-main);
-			line-height: 1.6;
-			overflow-x: hidden;
-			min-height: 100vh;
-		}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-		/* Ambient Glows - Alleen Blauw */
-		body::before,
-		body::after {
-			content: '';
-			position: fixed;
-			width: 400px;
-			height: 400px;
-			border-radius: 50%;
-			filter: blur(120px);
-			z-index: -1;
-			opacity: 0.15;
-		}
+        html {
+            scroll-behavior: smooth;
+        }
 
-		body::before {
-			background-color: var(--accent-color);
-			top: 5%;
-			left: 5%;
-		}
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
-		body::after {
-			background-color: var(--accent-color);
-			bottom: 5%;
-			right: 5%;
-		}
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            opacity: 0.15;
+        }
 
-		.glass {
-			background: var(--glass-bg);
-			backdrop-filter: blur(var(--glass-blur));
-			-webkit-backdrop-filter: blur(var(--glass-blur));
-			border: 1px solid var(--glass-border);
-			box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-		}
+        body::before {
+            background-color: var(--accent-color);
+            top: 5%;
+            left: 5%;
+        }
 
-		/* Navigatie */
-		nav {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 75px;
-			z-index: 1000;
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			padding: 0 50px;
-			background: rgba(15, 23, 42, 0.1);
-			backdrop-filter: blur(25px) saturate(180%);
-			border-bottom: 1px solid var(--glass-border);
-		}
+        body::after {
+            background-color: var(--accent-color);
+            bottom: 5%;
+            right: 5%;
+        }
 
-		.nav-logo {
-			font-family: var(--font-title);
-			font-size: 1.5rem;
-			font-weight: 800;
-			background: linear-gradient(90deg, #fff, var(--accent-color));
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
 
-		/* Secties */
-		.section {
-			min-height: 100vh;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: 120px 20px;
-		}
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            background: rgba(15, 23, 42, 0.1);
+            backdrop-filter: blur(25px) saturate(180%);
+            border-bottom: 1px solid var(--glass-border);
+        }
 
-		.container {
-			max-width: 1200px;
-			width: 100%;
-			margin: 0 auto;
-		}
+        .nav-logo {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #fff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-		/* Hero */
-		#home {
-			text-align: center;
-		}
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px;
+        }
 
-		.hero-content {
-			padding: 80px 40px;
-			border-radius: 32px;
-			max-width: 900px;
-			margin: 0 auto;
-		}
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
 
-		h1 {
-			font-family: var(--font-title);
-			font-size: clamp(2.5rem, 8vw, 4.5rem);
-			line-height: 1.1;
-			margin-bottom: 1.5rem;
-			background: linear-gradient(135deg, #fff 40%, var(--accent-color));
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
+        #home {
+            text-align: center;
+        }
 
-		/* Project Grid */
-		#werk {
-			flex-direction: column;
-			justify-content: flex-start;
-		}
+        .hero-content {
+            padding: 80px 40px;
+            border-radius: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-		.section-title {
-			font-family: var(--font-title);
-			text-align: center;
-			font-size: 2.8rem;
-			margin-bottom: 60px;
-		}
+        h1 {
+            font-family: var(--font-title);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 40%, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-		.grid {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-			gap: 40px;
-		}
+        #werk {
+            flex-direction: column;
+            justify-content: flex-start;
+        }
 
-		.project-card {
-			border-radius: 28px;
-			overflow: hidden;
-			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			display: flex;
-			flex-direction: column;
-		}
+        .section-title {
+            font-family: var(--font-title);
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+        }
 
-		.project-card:hover {
-			transform: translateY(-12px);
-			border-color: var(--accent-color);
-		}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
 
-		.project-img {
-			width: 100%;
-			height: 220px;
-			object-fit: cover;
-			border-bottom: 1px solid var(--glass-border);
-		}
+        .project-card {
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            flex-direction: column;
+        }
 
-		.project-info {
-			padding: 30px;
-		}
+        .project-card:hover {
+            transform: translateY(-12px);
+            border-color: var(--accent-color);
+        }
 
-		.project-info h3 {
-			font-family: var(--font-title);
-			font-size: 1.8rem;
-			margin-bottom: 1rem;
-		}
+        .project-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--glass-border);
+        }
 
-		/* Knoppen */
-		.btn {
-			display: inline-block;
-			padding: 14px 28px;
-			background: var(--accent-color);
-			color: #050a14;
-			text-decoration: none;
-			border-radius: 14px;
-			font-weight: 700;
-			font-family: var(--font-title);
-			transition: 0.3s ease;
-			cursor: pointer;
-			border: none;
-		}
+        .project-info {
+            padding: 30px;
+        }
 
-		.btn:hover {
-			box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
-			transform: scale(1.03);
-		}
+        .project-info h3 {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
 
-		/* MODAL */
-		.modal {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: rgba(2, 6, 20, 0.4);
-			backdrop-filter: blur(0px);
-			z-index: 2000;
-			display: none;
-			opacity: 0;
-			transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
-			overflow-y: auto;
-			padding: 40px 20px;
-		}
+        .project-info p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
 
-		.modal.open {
-			display: block;
-			opacity: 1;
-			backdrop-filter: blur(40px);
-		}
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: var(--accent-color);
+            color: #050a14;
+            text-decoration: none;
+            border-radius: 14px;
+            font-weight: 700;
+            font-family: var(--font-title);
+            transition: 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
 
-		.modal-content {
-			max-width: 900px;
-			margin: 40px auto;
-			background: rgba(255, 255, 255, 0.05);
-			backdrop-filter: blur(20px);
-			border: 1px solid rgba(255, 255, 255, 0.15);
-			border-radius: 40px;
-			padding: 60px;
-			box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-			transform: scale(0.8) translateY(50px) rotateX(-10deg);
-			transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-			opacity: 0;
-			position: relative;
-		}
+        .btn:hover {
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
+            transform: scale(1.03);
+        }
 
-		.modal-divider {
-			border: 0;
-			height: 1px;
-			background: rgba(255, 255, 255, 0.1);
-			margin-bottom: 30px;
-		}
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 6, 20, 0.4);
+            backdrop-filter: blur(0px);
+            z-index: 2000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
 
-		.modal.open .modal-content {
-			transform: scale(1) translateY(0) rotateX(0deg);
-			opacity: 1;
-		}
+        .modal.open {
+            display: block;
+            opacity: 1;
+            backdrop-filter: blur(40px);
+        }
 
-		.close-btn {
-			position: absolute;
-			top: 30px;
-			right: 40px;
-			font-size: 2.5rem;
-			color: white;
-			cursor: pointer;
-			opacity: 0.6;
-			transition: 0.3s;
-			z-index: 10;
-		}
+        .modal-content {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 40px;
+            padding: 60px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.8) translateY(50px) rotateX(-10deg);
+            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            position: relative;
+        }
 
-		.close-btn:hover {
-			opacity: 1;
-			transform: rotate(90deg);
-		}
+        .modal.open .modal-content {
+            transform: scale(1) translateY(0) rotateX(0deg);
+            opacity: 1;
+        }
 
-		.modal-body h2 {
-			font-family: var(--font-title);
-			font-size: 3rem;
-			margin-bottom: 20px;
-			color: var(--accent-color);
-		}
+        .modal-divider {
+            border: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
 
-		.modal-body h4 {
-			font-family: var(--font-title);
-			color: #fff;
-			margin: 25px 0 10px;
-			font-size: 1.2rem;
-		}
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.3s;
+            z-index: 10;
+        }
 
-		/* PDF BADGE SYSTEEM */
-		.pdf-list {
-			display: flex;
-			flex-direction: column;
-			gap: 15px;
-			margin-top: 30px;
-		}
+        .close-btn:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
 
-		.pdf-badge {
-			display: flex;
-			align-items: center;
-			gap: 20px;
-			padding: 15px 20px;
-			background: rgba(255, 255, 255, 0.03);
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			border-radius: 18px;
-			text-decoration: none;
-			transition: 0.3s ease;
-		}
+        .modal-body h2 {
+            font-family: var(--font-title);
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
 
-		.pdf-badge:hover {
-			background: rgba(239, 68, 68, 0.1);
-			border-color: var(--pdf-red);
-			transform: translateX(8px);
-		}
+        .modal-body h4 {
+            font-family: var(--font-title);
+            color: #fff;
+            margin: 25px 0 10px;
+            font-size: 1.2rem;
+        }
 
-		.pdf-icon {
-			width: 40px;
-			height: 50px;
-			background: var(--pdf-red);
-			border-radius: 4px 12px 4px 4px;
-			position: relative;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-weight: 800;
-			font-size: 0.7rem;
-			color: white;
-			flex-shrink: 0;
-		}
+        .pdf-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
 
-		.pdf-icon::after {
-			content: '';
-			position: absolute;
-			top: 0;
-			right: 0;
-			width: 12px;
-			height: 12px;
-			background: rgba(255, 255, 255, 0.3);
-			border-radius: 0 12px 0 4px;
-		}
+        .pdf-badge {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
 
-		.pdf-text {
-			display: flex;
-			flex-direction: column;
-			overflow: hidden;
-		}
+        .pdf-badge:hover {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: var(--pdf-red);
+            transform: translateX(8px);
+        }
 
-		.pdf-title {
-			color: #fff;
-			font-weight: 600;
-			font-size: 1rem;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
+        .pdf-icon {
+            width: 40px;
+            height: 50px;
+            background: var(--pdf-red);
+            border-radius: 4px 12px 4px 4px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.7rem;
+            color: white;
+            flex-shrink: 0;
+        }
 
-		.pdf-info {
-			color: var(--text-muted);
-			font-size: 0.8rem;
-		}
+        .pdf-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 0 12px 0 4px;
+        }
 
-		/* Reveal Animation */
-		.reveal {
-			opacity: 0;
-			transform: translateY(40px);
-			transition: 0.8s ease-out;
-		}
+        .pdf-text {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
 
-		.reveal-active {
-			opacity: 1;
-			transform: translateY(0);
-		}
+        .pdf-title {
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
-		@media (max-width: 768px) {
-			.grid {
-				grid-template-columns: 1fr;
-			}
+        .pdf-info {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
 
-			.modal-content {
-				padding: 40px 20px;
-				margin: 20px auto;
-			}
-		}
-	</style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.8s ease-out;
+        }
+
+        .reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            nav > div:last-child {
+                display: none;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 40px 20px;
+                margin: 20px auto;
+            }
+
+            .modal-body h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-	<nav>
-		<div class="nav-logo">ivan's Portfolio</div>
-		<div style="font-weight: 600; font-size: 0.8rem; opacity: 0.6; letter-spacing: 1px;">O&O | TECHNASIUM</div>
-	</nav>
 
-	<section id="home" class="section">
-		<div class="container">
-			<div class="hero-content glass reveal">
-				<h1>Onderzoek & Ontwerpen</h1>
-				<p style="color: var(--text-muted); font-size: 1.2rem; max-width: 650px; margin: 0 auto 2rem;">
-					Technasium projecten gedocumenteerd met een focus op proces en innovatie.
-				</p>
-				<a href="#werk" class="btn">Projecten Bekijken</a>
-			</div>
-		</div>
-	</section>
+    <nav>
+        <div class="nav-logo">Ivan's Portfolio</div>
+        <div style="font-weight: 600; font-size: 0.8rem; opacity: 0.6; letter-spacing: 1px;">
+            O&O | TECHNASIUM
+        </div>
+    </nav>
 
-	<section id="werk" class="section">
-		<div class="container">
-			<h2 class="section-title reveal">Mijn Projecten</h2>
-			<div class="grid">
-				<div class="project-card glass reveal">
-					<img src="/img/tinkercad.png" alt="Project 1" class="project-img">
-					<div class="project-info">
-						<h3>Project tinkercad kleine hond</h3>
-						<p>dit is mijn kleine hond gemaakt in tinkercad.</p>
-						<button class="btn" onclick="openModal('modal0')">Lees meer</button>
-					</div>
-				</div>
-				<div class="project-card glass reveal">
-					<img src="/vakkanjers.jpg" alt="Project 2" class="project-img">
-					<div class="project-info">
-						<h3>project vakkanjers</h3>
-						<p>we moetsen een groene oplosing vinden voor afval op een festifal.</p>
-						<button class="btn" onclick="openModal('modal1')">Lees meer</button>
-					</div>
-				</div>
-				<section id="werk" class="section">
-					<div class="container">
-						<h2 class="section-title reveal">Mijn Projecten</h2>
-						<div class="grid">
-							<div class="project-card glass reveal">
-								<img src="/img/tinkercad.png" alt="Project 5" class="project-img">
-								<div class="project-info">
-									<h3>blauwalg</h3>
-									<p>dit is een machiene die waterstoferoxide spuit om blauw alg te doden</p>
-									<button class="btn" onclick="openModal('modal0')">Lees meer</button>
-								</div>
-							</div>
-							<div class="project-card glass reveal">
-								<img src="/vakkanjers.jpg" alt="Project 2" class="project-img">
-								<div class="project-info">
-									<h3>project blauwalg</h3>
-									<p>we moesten een olosing vinden tegen blauwalg bij het</p>
-									<button class="btn" onclick="openModal('modal1')">Lees meer</button>
-								</div>
-							</div>
+    <!-- HOME -->
+    <section id="home" class="section">
+        <div class="container">
+            <div class="hero-content glass reveal">
+                <h1>Onderzoek &amp; Ontwerpen</h1>
 
+                <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 650px; margin: 0 auto 2rem;">
+                    Technasium projecten gedocumenteerd met een focus op proces en innovatie.
+                </p>
 
-							<div class="project-card glass reveal">
-								<img src="/img/aqualectra.jpg" alt="Project 3" class="project-img">
-								<div class="project-info">
-									<h3>Kantine inrichting</h3>
-									<p>Wij moesten voor Aqualectra uit Heerhugowaard de kantine opnieuw inrichten.</p>
-									<button class="btn" onclick="openModal('modal2')">Lees meer</button>
-								</div>
-							</div>
+                <a href="#werk" class="btn">Projecten Bekijken</a>
+            </div>
+        </div>
+    </section>
 
-							<div class="project-card glass reveal">
-								<img src="/image.jpg
-					<div class=" project-info">
-								<h3>
-									Zuiderzeemuseum
-								</h3>
-								<p>we moeten of blauw alg weg halen uit het water woor watertoppers (a) of (B) het programa
-									veranderen.</p>
-								<button class="btn" onclick="openModal('modal3')">Lees meer</button>
-							</div>
-						</div>
+    <!-- PROJECTEN -->
+    <section id="werk" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Mijn Projecten</h2>
 
-					</div>
-			</div>
-	</section>
-	<div id="modal0" class="modal">
-		<div class="modal-content">
-			<span class="close-btn" onclick="closeModal('modal0')">&times;</span>
-			<div class="modal-body">
-				<h2>Project 1: tinkercad</h2>
-				<hr class="modal-divider">
-				<h4>Opdrachtgever</h4>
-				<p>school</p>
-				<h4>Probleemstelling</h4>
-				<p>ik moest een dier maken in tenkercad</h4>
-				<h4>proces</h4>
-				<p>dit is het dan de kleine hond</p>
-				<h4>project bestand</h4>
-				<p>hier vind je het ontwep</p>
+            <div class="grid">
 
-				<a href="https://www.tinkercad.com/things/jAqi5KYZl9v-school-project" class="pdf-badge" target="_blank">
-					<div class="pdf-icon">HTML</div>
-					<div class="pdf-text">
-						<span class="pdf-title">tinkercad kleine hond.html</span>
-						<span class="pdf-text">hierzo de link</span>
-					</div>
-				</a>
-			</div>
-		</div>
-	</div>
-	</div>
+                <!-- PROJECT 1 -->
+                <div class="project-card glass reveal">
+                    <img src="/img/tinkercad.png" alt="Tinkercad kleine hond" class="project-img">
 
-	<div id="modal1" class="modal">
-		<div class="modal-content">
-			<span class="close-btn" onclick="closeModal('modal1')">&times;</span>
-			<div class="modal-body">
-				<h2>Project 2: vakkanjers</h2>
-				<hr class="modal-divider">
-				<h4>Opdrachtgever</h4>
-				<p>vakkanjers</p>
-				<h4>Probleemstelling</h4>
-				<p>hoe kunnen we er voor zorgen dat er zo min mogelijk afval komt op een festifal achterblijft?</p>
-				<h4>Proces</h4>
-				<p>we hadden play and spray gemaakt een kraampje waar je de afwas doet op een leuke manier.
-					namelijk door het schoon te spuiten met waterpistolen!</p>
-			</div>
-		</div>
-	</div>
+                    <div class="project-info">
+                        <h3>Project Tinkercad kleine hond</h3>
+                        <p>Dit is mijn kleine hond gemaakt in Tinkercad.</p>
 
+                        <button class="btn" onclick="openModal('modal0')">
+                            Lees meer
+                        </button>
+                    </div>
+                </div>
 
-	<div id="modal2" class="modal">
-		<div class="modal-content">
-			<span class="close-btn" onclick="closeModal('modal2')">&times;</span>
-			<div class="modal-body">
-				<h2>project 3: aqualectra</h2>
-				<hr class="modal-divider">
-				<h4>Opdrachtgever</h4>
-				<p>Aqualectra</p>
-				<h4>Probleemstelling</h4>
-				<p>we moesten een Kantine ontweren en bouwen voor Aqualectra</p>
-				<h4>Proces</h4>
-				<p>dit is hetuiteindelijk geworden we hebben helaas wel te weineg stoelen door gebre aan tijd door plannen die
-					niet door konden gaan</p>
-				<h4>Projectbestanden</h4>
-				<p>Hieronder vind je alle documenten met betrekking tot het onderzoek en de inrichting.</p>
+                <!-- PROJECT 2 -->
+                <div class="project-card glass reveal">
+                    <img src="/vakkanjers.jpg" alt="Vakkanjers project" class="project-img">
 
-				<div class="pdf-list">
-					<a href="pdf/aqaulectra/Onderzoek.pdf" class="pdf-badge" download>
-						<div class="pdf-icon">PDF</div>
-						<div class="pdf-text">
-							<span class="pdf-title">Onderzoek.pdf</span>
-							<span class="pdf-info">Het volledige vooronderzoek</span>
-						</div>
-					</a>
+                    <div class="project-info">
+                        <h3>Project Vakkanjers</h3>
+                        <p>We moesten een groene oplossing vinden voor afval op een festival.</p>
 
-					<a href="pdf/aqaulectra/eisen (1).pdf" class="pdf-badge" download>
-						<div class="pdf-icon">PDF</div>
-						<div class="pdf-text">
-							<span class="pdf-title">Eisen.pdf</span>
-							<span class="pdf-info">Alle criteria en randvoorwaarden</span>
-						</div>
-					</a>
+                        <button class="btn" onclick="openModal('modal1')">
+                            Lees meer
+                        </button>
+                    </div>
+                </div>
 
-					<a href="pdf/aqaulectra/moodboard.pdf" class="pdf-badge" download>
-						<div class="pdf-icon">PDF</div>
-						<div class="pdf-text">
-							<span class="pdf-title">Moodboard.pdf</span>
-							<span class="pdf-info">Onze inspiratie</span>
-						</div>
-					</a>
+                <!-- PROJECT 3 -->
+                <div class="project-card glass reveal">
+                    <img src="/img/blauwalg.jpg" alt="Blauwalg project" class="project-img">
 
-					<a href="pdf/aqaulectra/O&O Project Hub.pdf" class="pdf-badge" download>
-						<div class="pdf-icon">PDF</div>
-						<div class="pdf-text">
-							<span class="pdf-title">proect hub.pdf</span>
-							<span class="pdf-info">Het uiteindelijke kantineplan</span>
-						</div>
-					</a>
+                    <div class="project-info">
+                        <h3>Project Blauwalg</h3>
+                        <p>Dit is een machine die waterstofperoxide spuit om blauwalg te bestrijden.</p>
 
-					<a href="pdf/aqaulectra/logboek O&O.pdf" class="pdf-badge" download>
-						<div class="pdf-icon">PDF</div>
-						<div class="pdf-text">
-							<span class="pdf-title">Logboek.pdf</span>
-							<span class="pdf-info">Het overzicht van de verdeling</span>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="modal3" class="modal">
-		<div class="modal-content">
-			<span class="close-btn" onclick="closeModal('modal3')">&times;</span>
-			<div class="modal-body">
-				<h2>project 4: zuiderzeemuseum </h2>
-				<hr class="modal-divider">
-				<h4>Opdrachtgever</h4>
-				<p>zuiderzeemuseum</p>
-				<h4>Probleemstelling</h4>
-				<p>we kozen A dus de blauw alg verweideren.</p>
-				<h4>Proces</h4>
-				<p>coming soon</p>
-			</div>
-		</div>
-	</div>
+                        <button class="btn" onclick="openModal('modal4')">
+                            Lees meer
+                        </button>
+                    </div>
+                </div>
 
+                <!-- PROJECT 4 -->
+                <div class="project-card glass reveal">
+                    <img src="/img/aqualectra.jpg" alt="Aqualectra kantine" class="project-img">
 
-	<script>
-		function openModal(id) {
-			const modal = document.getElementById(id);
-			modal.style.display = 'block';
-			setTimeout(() => { modal.classList.add('open'); }, 10);
-			document.body.style.overflow = 'hidden';
-		}
+                    <div class="project-info">
+                        <h3>Kantine inrichting</h3>
+                        <p>Wij moesten voor Aqualectra uit Heerhugowaard de kantine opnieuw inrichten.</p>
 
-		function closeModal(id) {
-			const modal = document.getElementById(id);
-			modal.classList.remove('open');
-			setTimeout(() => { modal.style.display = 'none'; }, 600);
-			document.body.style.overflow = 'auto';
-		}
+                        <button class="btn" onclick="openModal('modal2')">
+                            Lees meer
+                        </button>
+                    </div>
+                </div>
 
-		window.onclick = function (event) {
-			if (event.target.classList.contains('modal')) {
-				closeModal(event.target.id);
-			}
-		}
+                <!-- PROJECT 5 -->
+                <div class="project-card glass reveal">
+                    <img src="/image.jpg" alt="Zuiderzeemuseum project" class="project-img">
 
-		const observer = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('reveal-active');
-				}
-			});
-		}, { threshold: 0.15 });
+                    <div class="project-info">
+                        <h3>Zuiderzeemuseum</h3>
+                        <p>We moesten een oplossing vinden voor blauwalg in het water.</p>
 
-		document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-	</script>
+                        <button class="btn" onclick="openModal('modal3')">
+                            Lees meer
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL 1: TINKERCAD -->
+    <div id="modal0" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal0')">&times;</span>
+
+            <div class="modal-body">
+                <h2>Project 1: Tinkercad</h2>
+                <hr class="modal-divider">
+
+                <h4>Opdrachtgever</h4>
+                <p>School</p>
+
+                <h4>Probleemstelling</h4>
+                <p>Ik moest een dier maken in Tinkercad.</p>
+
+                <h4>Proces</h4>
+                <p>Dit is uiteindelijk de kleine hond geworden.</p>
+
+                <h4>Projectbestand</h4>
+                <p>Hier vind je het ontwerp.</p>
+
+                <a href="https://www.tinkercad.com/things/jAqi5KYZl9v-school-project"
+                   class="pdf-badge"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <div class="pdf-icon">LINK</div>
+
+                    <div class="pdf-text">
+                        <span class="pdf-title">Tinkercad kleine hond</span>
+                        <span class="pdf-info">Open het ontwerp in Tinkercad</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: VAKKANJERS -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+
+            <div class="modal-body">
+                <h2>Project 2: Vakkanjers</h2>
+                <hr class="modal-divider">
+
+                <h4>Opdrachtgever</h4>
+                <p>Vakkanjers</p>
+
+                <h4>Probleemstelling</h4>
+                <p>
+                    Hoe kunnen we ervoor zorgen dat er zo min mogelijk afval
+                    achterblijft op een festival?
+                </p>
+
+                <h4>Proces</h4>
+                <p>
+                    We hadden Play and Spray gemaakt: een kraampje waar je de
+                    afwas doet op een leuke manier, namelijk door het schoon te
+                    spuiten met waterpistolen!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 3: AQUALectra -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+
+            <div class="modal-body">
+                <h2>Project 3: Aqualectra</h2>
+                <hr class="modal-divider">
+
+                <h4>Opdrachtgever</h4>
+                <p>Aqualectra</p>
+
+                <h4>Probleemstelling</h4>
+                <p>We moesten een kantine ontwerpen en bouwen voor Aqualectra.</p>
+
+                <h4>Proces</h4>
+                <p>
+                    Dit is het uiteindelijk geworden. We hebben helaas te weinig
+                    stoelen door gebrek aan tijd en plannen die niet door konden gaan.
+                </p>
+
+                <h4>Projectbestanden</h4>
+                <p>
+                    Hieronder vind je alle documenten met betrekking tot het
+                    onderzoek en de inrichting.
+                </p>
+
+                <div class="pdf-list">
+
+                    <a href="pdf/aqaulectra/Onderzoek.pdf" class="pdf-badge" download>
+                        <div class="pdf-icon">PDF</div>
+                        <div class="pdf-text">
+                            <span class="pdf-title">Onderzoek.pdf</span>
+                            <span class="pdf-info">Het volledige vooronderzoek</span>
+                        </div>
+                    </a>
+
+                    <a href="pdf/aqaulectra/eisen (1).pdf" class="pdf-badge" download>
+                        <div class="pdf-icon">PDF</div>
+                        <div class="pdf-text">
+                            <span class="pdf-title">Eisen.pdf</span>
+                            <span class="pdf-info">Alle criteria en randvoorwaarden</span>
+                        </div>
+                    </a>
+
+                    <a href="pdf/aqaulectra/moodboard.pdf" class="pdf-badge" download>
+                        <div class="pdf-icon">PDF</div>
+                        <div class="pdf-text">
+                            <span class="pdf-title">Moodboard.pdf</span>
+                            <span class="pdf-info">Onze inspiratie</span>
+                        </div>
+                    </a>
+
+                    <a href="pdf/aqaulectra/O&O Project Hub.pdf" class="pdf-badge" download>
+                        <div class="pdf-icon">PDF</div>
+                        <div class="pdf-text">
+                            <span class="pdf-title">Project Hub.pdf</span>
+                            <span class="pdf-info">Het uiteindelijke kantineplan</span>
+                        </div>
+                    </a>
+
+                    <a href="pdf/aqaulectra/logboek O&O.pdf" class="pdf-badge" download>
+                        <div class="pdf-icon">PDF</div>
+                        <div class="pdf-text">
+                            <span class="pdf-title">Logboek.pdf</span>
+                            <span class="pdf-info">Het overzicht van de verdeling</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: ZUIDERZEEMUSEUM -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+
+            <div class="modal-body">
+                <h2>Project 4: Zuiderzeemuseum</h2>
+                <hr class="modal-divider">
+
+                <h4>Opdrachtgever</h4>
+                <p>Zuiderzeemuseum</p>
+
+                <h4>Probleemstelling</h4>
+                <p>We kozen A: de blauwalg verwijderen.</p>
+
+                <h4>Proces</h4>
+                <p>Coming soon.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 5: BLAUWALG -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('modal4')">&times;</span>
+
+            <div class="modal-body">
+                <h2>Project 5: Blauwalg</h2>
+                <hr class="modal-divider">
+
+                <h4>Opdrachtgever</h4>
+                <p>Schoolproject</p>
+
+                <h4>Probleemstelling</h4>
+                <p>
+                    We moesten een oplossing vinden voor blauwalg.
+                </p>
+
+                <h4>Proces</h4>
+                <p>
+                    We hebben een machine ontworpen die waterstofperoxide kan
+                    verspreiden om blauwalg te bestrijden.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            const modal = document.getElementById(id);
+
+            if (!modal) {
+                console.error("Modal niet gevonden:", id);
+                return;
+            }
+
+            modal.style.display = 'block';
+
+            setTimeout(() => {
+                modal.classList.add('open');
+            }, 10);
+
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+
+            if (!modal) {
+                return;
+            }
+
+            modal.classList.remove('open');
+
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 600);
+
+            document.body.style.overflow = 'auto';
+        }
+
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                document.querySelectorAll('.modal.open').forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                }
+            });
+        }, {
+            threshold: 0.15
+        });
+
+        document.querySelectorAll('.reveal').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+
 </body>
-
 </html>
