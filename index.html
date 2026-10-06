@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@500;600;700;800&display=swap"
         rel="stylesheet"
     >
 
@@ -19,28 +19,51 @@
 
 <body>
 
-    <!-- NAVIGATIE -->
+    <!-- =========================================
+         NAVIGATIE
+    ========================================== -->
+
     <header class="navbar">
 
-        <div class="nav-container">
+        <div class="nav-inner">
 
             <a href="#home" class="logo">
-                Ivan<span>'</span>s Portfolio
+                <span class="logo-mark">I</span>
+
+                <span>
+                    Ivan's
+                    <small>Portfolio</small>
+                </span>
             </a>
 
             <button
                 class="menu-button"
                 id="menuButton"
-                aria-label="Menu openen"
+                aria-label="Menu"
             >
-                ☰
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
 
             <nav id="navMenu">
-                <a href="#home">Home</a>
-                <a href="#projecten">Projecten</a>
-                <a href="#leren">Wat ik leer</a>
-                <a href="#over-mij">Over mij</a>
+
+                <a href="#home" class="nav-link active">
+                    Home
+                </a>
+
+                <a href="#projecten" class="nav-link">
+                    Projecten
+                </a>
+
+                <a href="#leren" class="nav-link">
+                    Wat ik leer
+                </a>
+
+                <a href="#over-mij" class="nav-link">
+                    Over mij
+                </a>
+
             </nav>
 
         </div>
@@ -48,493 +71,792 @@
     </header>
 
 
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
     <main>
 
-        <!-- HERO -->
         <section class="hero" id="home">
 
-            <div class="hero-content">
+            <div class="hero-background-shape shape-one"></div>
+            <div class="hero-background-shape shape-two"></div>
 
-                <div class="hello">
-                    👋 Hallo!
+            <div class="hero-left">
+
+                <div class="welcome-pill">
+                    <span class="online-dot"></span>
+                    Mijn O&O portfolio
                 </div>
 
                 <h1>
-                    Hoi! Ik ben <span>Ivan</span>
+                    Hoi! Ik ben
+                    <span>Ivan.</span>
                 </h1>
 
-                <p class="hero-text">
-                    Welkom op mijn O&O-portfolio! Hier laat ik zien
-                    aan welke projecten ik heb gewerkt en wat ik
-                    tijdens O&O heb geleerd.
+                <div class="hero-line"></div>
+
+                <p class="hero-description">
+                    Welkom op mijn portfolio voor
+                    <strong>Onderzoeken & Ontwerpen.</strong>
+                    Hier laat ik zien welke projecten ik heb
+                    gemaakt en wat ik tijdens O&O heb geleerd.
                 </p>
 
                 <div class="hero-buttons">
 
-                    <a href="#projecten" class="button primary">
-                        Bekijk mijn projecten →
+                    <a
+                        href="#projecten"
+                        class="button button-primary"
+                    >
+                        Bekijk mijn projecten
+                        <span>→</span>
                     </a>
 
-                    <a href="#over-mij" class="button secondary">
-                        Over mij
+                    <a
+                        href="#over-mij"
+                        class="button button-light"
+                    >
+                        Meer over mij
                     </a>
 
                 </div>
 
-            </div>
+                <div class="hero-stats">
 
+                    <div class="stat">
+                        <strong>4+</strong>
+                        <span>projecten</span>
+                    </div>
 
-            <!-- HERO TEKENING -->
-            <div class="hero-card">
+                    <div class="stat-divider"></div>
 
-                <div class="hero-decoration one"></div>
-                <div class="hero-decoration two"></div>
+                    <div class="stat">
+                        <strong>O&O</strong>
+                        <span>Technasium</span>
+                    </div>
 
-                <div class="hero-icon">
-                    🔧
-                </div>
+                    <div class="stat-divider"></div>
 
-                <div class="hero-small-title">
-                    TECHNASIUM
-                </div>
-
-                <h2>
-                    Onderzoeken<br>
-                    & Ontwerpen
-                </h2>
-
-                <p>
-                    Problemen onderzoeken, ideeën bedenken
-                    en oplossingen ontwerpen.
-                </p>
-
-                <div class="mini-items">
-
-                    <span>💡 Ideeën</span>
-                    <span>🔨 Maken</span>
-                    <span>🧠 Leren</span>
+                    <div class="stat">
+                        <strong>∞</strong>
+                        <span>ideeën</span>
+                    </div>
 
                 </div>
 
             </div>
 
-        </section>
 
+            <!-- HERO ILLUSTRATIE -->
 
-        <!-- PROJECTEN -->
-        <section class="section" id="projecten">
+            <div class="hero-visual">
 
-            <div class="section-heading">
+                <div class="visual-glow"></div>
 
-                <div>
-                    <p class="section-label">MIJN WERK</p>
-                    <h2>Mijn projecten 🚀</h2>
+                <div class="floating-card card-top">
+                    <span>💡</span>
+                    <div>
+                        <strong>Idee</strong>
+                        <small>Nieuw concept</small>
+                    </div>
                 </div>
 
-                <p>
-                    Een paar projecten waar ik tijdens O&O
-                    aan heb gewerkt.
-                </p>
-
-            </div>
-
-
-            <div class="projects-grid">
-
-
-                <!-- PROJECT 1 -->
-                <article class="project-card">
-
-                    <div class="project-picture dog-picture">
-
-                        <div class="picture-number">
-                            01
-                        </div>
-
-                        <div class="dog">
-                            <div class="dog-ear left"></div>
-                            <div class="dog-ear right"></div>
-
-                            <div class="dog-head">
-                                <div class="dog-eye left"></div>
-                                <div class="dog-eye right"></div>
-
-                                <div class="dog-nose"></div>
-                            </div>
-
-                            <div class="dog-body"></div>
-
-                            <div class="dog-leg leg1"></div>
-                            <div class="dog-leg leg2"></div>
-
-                            <div class="dog-tail"></div>
-                        </div>
-
-                        <div class="picture-label">
-                            TINKERCAD
-                        </div>
-
+                <div class="floating-card card-bottom">
+                    <span>🔧</span>
+                    <div>
+                        <strong>Maken</strong>
+                        <small>Prototype</small>
                     </div>
+                </div>
 
 
-                    <div class="project-content">
+                <div class="design-board">
 
-                        <span class="tag blue">
-                            TINKERCAD
-                        </span>
+                    <div class="board-header">
 
-                        <h3>Kleine hond 🐶</h3>
-
-                        <p>
-                            Een klein ontwerp dat ik heb gemaakt
-                            in Tinkercad.
-                        </p>
-
-                        <button
-                            class="project-button"
-                            data-project="0"
-                        >
-                            Bekijk project →
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT 2 -->
-                <article class="project-card">
-
-                    <div class="project-picture spray-picture">
-
-                        <div class="picture-number">
-                            02
+                        <div class="board-dots">
+                            <i></i>
+                            <i></i>
+                            <i></i>
                         </div>
 
-                        <div class="spray-target">
-
-                            <div class="target-ring ring1"></div>
-                            <div class="target-ring ring2"></div>
-                            <div class="target-ring ring3"></div>
-
-                            <div class="target-center"></div>
-
-                        </div>
-
-                        <div class="water-drop drop1">
-                            💧
-                        </div>
-
-                        <div class="water-drop drop2">
-                            💦
-                        </div>
-
-                        <div class="picture-label">
-                            PLAY & SPRAY
-                        </div>
-
-                    </div>
-
-
-                    <div class="project-content">
-
-                        <span class="tag orange">
-                            VAKKANJERS
-                        </span>
-
-                        <h3>Play and Spray 🎯</h3>
-
-                        <p>
-                            Een project waarbij we een idee
-                            hebben bedacht en uitgewerkt.
-                        </p>
-
-                        <button
-                            class="project-button"
-                            data-project="1"
-                        >
-                            Bekijk project →
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- PROJECT 3 -->
-                <article class="project-card">
-
-                    <div class="project-picture canteen-picture">
-
-                        <div class="picture-number">
-                            03
-                        </div>
-
-                        <div class="canteen-table"></div>
-
-                        <div class="canteen-chair chair1"></div>
-                        <div class="canteen-chair chair2"></div>
-
-                        <div class="plant">
-                            🌿
-                        </div>
-
-                        <div class="lamp">
-                            💡
-                        </div>
-
-                        <div class="picture-label">
-                            KANTINE
-                        </div>
-
-                    </div>
-
-
-                    <div class="project-content">
-
-                        <span class="tag green">
+                        <span>
                             O&O PROJECT
                         </span>
 
-                        <h3>Kantine inrichting 🪑</h3>
+                    </div>
 
-                        <p>
-                            Onderzoek en ontwerpen voor een
-                            nieuwe inrichting van de kantine.
-                        </p>
 
-                        <button
-                            class="project-button"
-                            data-project="2"
-                        >
-                            Bekijk project →
-                        </button>
+                    <div class="board-content">
+
+                        <div class="board-title">
+                            ONDERZOEK
+                            <span>&</span>
+                            ONTWERP
+                        </div>
+
+                        <div class="blueprint">
+
+                            <div class="blueprint-circle">
+                                <div class="blueprint-inner">
+                                    💡
+                                </div>
+                            </div>
+
+                            <div class="blueprint-line line-a"></div>
+                            <div class="blueprint-line line-b"></div>
+                            <div class="blueprint-line line-c"></div>
+
+                            <div class="blueprint-dot dot-a"></div>
+                            <div class="blueprint-dot dot-b"></div>
+                            <div class="blueprint-dot dot-c"></div>
+
+                        </div>
+
+
+                        <div class="board-tags">
+
+                            <span>ONDERZOEK</span>
+                            <span>IDEA</span>
+                            <span>MAKEN</span>
+
+                        </div>
 
                     </div>
 
-                </article>
+                </div>
+
+            </div>
+
+        </section>
 
 
-                <!-- PROJECT 4 -->
-                <article class="project-card">
+        <!-- =========================================
+             PROJECTEN
+        ========================================== -->
 
-                    <div class="project-picture water-picture">
+        <section class="projects-section" id="projecten">
 
-                        <div class="picture-number">
-                            04
+            <div class="section-container">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <div class="section-kicker">
+                            <span></span>
+                            MIJN WERK
                         </div>
 
-                        <div class="water-machine">
+                        <h2>
+                            Projecten waar ik
+                            <span>trots op ben.</span>
+                        </h2>
 
-                            <div class="machine-top"></div>
+                    </div>
 
-                            <div class="machine-body">
+                    <p>
+                        Hier staan projecten waar ik tijdens O&O
+                        aan heb gewerkt. Klik op een project voor
+                        meer informatie.
+                    </p>
 
-                                <div class="machine-screen">
-                                    💧
+                </div>
+
+
+                <div class="projects-grid">
+
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="project-card">
+
+                        <div class="project-art art-dog">
+
+                            <div class="art-grid"></div>
+
+                            <div class="number-badge">
+                                01
+                            </div>
+
+                            <div class="art-title">
+                                TINKERCAD
+                            </div>
+
+                            <div class="dog-model">
+
+                                <div class="dog-tail"></div>
+
+                                <div class="dog-body">
+                                    <div class="dog-leg dog-leg-1"></div>
+                                    <div class="dog-leg dog-leg-2"></div>
                                 </div>
 
-                                <div class="machine-light"></div>
+                                <div class="dog-head">
+
+                                    <div class="dog-ear ear-left"></div>
+                                    <div class="dog-ear ear-right"></div>
+
+                                    <div class="dog-face">
+
+                                        <span class="dog-eye eye-left"></span>
+                                        <span class="dog-eye eye-right"></span>
+
+                                        <span class="dog-muzzle">
+                                            <i></i>
+                                        </span>
+
+                                    </div>
+
+                                </div>
 
                             </div>
 
-                            <div class="machine-tube"></div>
+                            <div class="art-floor"></div>
+
+                            <div class="floating-shape cube-one"></div>
+                            <div class="floating-shape cube-two"></div>
 
                         </div>
 
-                        <div class="water-wave wave1"></div>
-                        <div class="water-wave wave2"></div>
 
-                        <div class="picture-label">
-                            ZUIDERZEEMUSEUM
+                        <div class="project-info">
+
+                            <div class="project-topline">
+
+                                <span class="project-tag blue">
+                                    3D ONTWERP
+                                </span>
+
+                                <span class="project-arrow">
+                                    ↗
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Kleine hond
+                                <span>🐶</span>
+                            </h3>
+
+                            <p>
+                                Een klein 3D-ontwerp dat ik heb
+                                gemaakt in Tinkercad.
+                            </p>
+
+                            <button
+                                class="project-link"
+                                data-project="0"
+                            >
+                                Bekijk project
+                                <span>→</span>
+                            </button>
+
                         </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="project-card">
+
+                        <div class="project-art art-spray">
+
+                            <div class="art-grid"></div>
+
+                            <div class="number-badge">
+                                02
+                            </div>
+
+                            <div class="art-title">
+                                PLAY & SPRAY
+                            </div>
+
+                            <div class="target">
+
+                                <div class="target-ring ring-one"></div>
+                                <div class="target-ring ring-two"></div>
+                                <div class="target-ring ring-three"></div>
+
+                                <div class="target-center"></div>
+
+                            </div>
+
+                            <div class="spray-gun">
+
+                                <div class="gun-top"></div>
+                                <div class="gun-body"></div>
+                                <div class="gun-handle"></div>
+                                <div class="gun-nozzle"></div>
+
+                            </div>
+
+                            <span class="drop drop-one">💧</span>
+                            <span class="drop drop-two">💦</span>
+                            <span class="drop drop-three">💧</span>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <div class="project-topline">
+
+                                <span class="project-tag orange">
+                                    VAKKANJERS
+                                </span>
+
+                                <span class="project-arrow">
+                                    ↗
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Play and Spray
+                                <span>🎯</span>
+                            </h3>
+
+                            <p>
+                                Een project waarbij we een idee
+                                hebben bedacht, onderzocht en
+                                uitgewerkt.
+                            </p>
+
+                            <button
+                                class="project-link"
+                                data-project="1"
+                            >
+                                Bekijk project
+                                <span>→</span>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="project-card">
+
+                        <div class="project-art art-canteen">
+
+                            <div class="art-grid"></div>
+
+                            <div class="number-badge">
+                                03
+                            </div>
+
+                            <div class="art-title">
+                                KANTINE
+                            </div>
+
+
+                            <div class="ceiling-light">
+                                <span></span>
+                            </div>
+
+                            <div class="canteen-plant">
+                                🌿
+                            </div>
+
+                            <div class="table-top"></div>
+
+                            <div class="table-leg leg-left"></div>
+                            <div class="table-leg leg-right"></div>
+
+                            <div class="chair chair-left">
+                                <div></div>
+                            </div>
+
+                            <div class="chair chair-right">
+                                <div></div>
+                            </div>
+
+                            <div class="cup">
+                                ☕
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <div class="project-topline">
+
+                                <span class="project-tag green">
+                                    O&O PROJECT
+                                </span>
+
+                                <span class="project-arrow">
+                                    ↗
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Kantine inrichting
+                                <span>🪑</span>
+                            </h3>
+
+                            <p>
+                                Onderzoek en ontwerpen voor een
+                                nieuwe inrichting van de kantine.
+                            </p>
+
+                            <button
+                                class="project-link"
+                                data-project="2"
+                            >
+                                Bekijk project
+                                <span>→</span>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 4 -->
+
+                    <article class="project-card">
+
+                        <div class="project-art art-water">
+
+                            <div class="art-grid"></div>
+
+                            <div class="number-badge">
+                                04
+                            </div>
+
+                            <div class="art-title">
+                                WATERPROJECT
+                            </div>
+
+
+                            <div class="water-surface">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+
+
+                            <div class="water-machine">
+
+                                <div class="machine-top"></div>
+
+                                <div class="machine-body">
+
+                                    <div class="machine-screen">
+                                        <span>H₂O</span>
+                                    </div>
+
+                                    <div class="machine-light"></div>
+
+                                    <div class="machine-button"></div>
+
+                                </div>
+
+                                <div class="machine-pipe"></div>
+
+                            </div>
+
+
+                            <div class="water-bubble bubble-one">
+                                ●
+                            </div>
+
+                            <div class="water-bubble bubble-two">
+                                ●
+                            </div>
+
+                            <div class="water-bubble bubble-three">
+                                ●
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <div class="project-topline">
+
+                                <span class="project-tag purple">
+                                    ZUIDERZEEMUSEUM
+                                </span>
+
+                                <span class="project-arrow">
+                                    ↗
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Waterproject
+                                <span>💧</span>
+                            </h3>
+
+                            <p>
+                                Een project over het verwijderen
+                                van blauwalg uit water.
+                            </p>
+
+                            <button
+                                class="project-link"
+                                data-project="3"
+                            >
+                                Bekijk project
+                                <span>→</span>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- BINNENKORT -->
+
+                    <article class="project-card coming-project">
+
+                        <div class="project-art art-coming">
+
+                            <div class="number-badge">
+                                05
+                            </div>
+
+                            <div class="coming-circle">
+                                <span>?</span>
+                            </div>
+
+                            <div class="coming-star star-one">
+                                ✦
+                            </div>
+
+                            <div class="coming-star star-two">
+                                ✦
+                            </div>
+
+                            <div class="coming-star star-three">
+                                ✦
+                            </div>
+
+                            <div class="art-title">
+                                BINNENKORT
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <div class="project-topline">
+
+                                <span class="project-tag gray">
+                                    NIEUW
+                                </span>
+
+                            </div>
+
+                            <h3>
+                                Nieuw project
+                                <span>👀</span>
+                            </h3>
+
+                            <p>
+                                Hier komt binnenkort een nieuw
+                                project te staan.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             WAT IK LEER
+        ========================================== -->
+
+        <section class="learning-section" id="leren">
+
+            <div class="section-container">
+
+                <div class="section-top">
+
+                    <div>
+
+                        <div class="section-kicker">
+                            <span></span>
+                            MIJN ONTWIKKELING
+                        </div>
+
+                        <h2>
+                            Wat ik leer bij
+                            <span>O&O.</span>
+                        </h2>
 
                     </div>
 
+                    <p>
+                        O&O gaat niet alleen over een eindproduct.
+                        Ik leer ook hoe ik een probleem aanpak.
+                    </p>
 
-                    <div class="project-content">
+                </div>
 
-                        <span class="tag purple">
-                            ZUIDERZEEMUSEUM
-                        </span>
 
-                        <h3>Waterproject 💧</h3>
+                <div class="learning-grid">
+
+
+                    <div class="learning-card">
+
+                        <div class="learning-icon icon-blue">
+                            🔎
+                        </div>
+
+                        <div class="learning-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Onderzoeken
+                        </h3>
 
                         <p>
-                            Een project over het verwijderen
-                            van blauwalg uit water.
+                            Ik leer vragen stellen, informatie
+                            verzamelen en verschillende oplossingen
+                            met elkaar vergelijken.
                         </p>
 
-                        <button
-                            class="project-button"
-                            data-project="3"
-                        >
-                            Bekijk project →
-                        </button>
-
                     </div>
 
-                </article>
 
+                    <div class="learning-card">
 
-                <!-- PROJECT 5 -->
-                <article class="project-card coming-card">
-
-                    <div class="coming-picture">
-
-                        <div class="coming-stars">
-                            ✦
+                        <div class="learning-icon icon-orange">
+                            💡
                         </div>
 
-                        <div class="coming-big">
-                            ?
+                        <div class="learning-number">
+                            02
                         </div>
 
-                        <div class="coming-stars second">
-                            ✦
-                        </div>
-
-                    </div>
-
-                    <div class="project-content">
-
-                        <span class="tag gray">
-                            BINNENKORT
-                        </span>
-
-                        <h3>Nieuw project 👀</h3>
+                        <h3>
+                            Ontwerpen
+                        </h3>
 
                         <p>
-                            Hier komt binnenkort een nieuw
-                            O&O-project te staan.
+                            Ik leer ideeën bedenken en deze stap
+                            voor stap omzetten in een ontwerp.
                         </p>
 
                     </div>
 
-                </article>
 
-            </div>
+                    <div class="learning-card">
 
-        </section>
+                        <div class="learning-icon icon-green">
+                            🤝
+                        </div>
 
+                        <div class="learning-number">
+                            03
+                        </div>
 
-        <!-- WAT IK LEER -->
-        <section class="section learning-section" id="leren">
+                        <h3>
+                            Samenwerken
+                        </h3>
 
-            <div class="section-heading">
+                        <p>
+                            Ik leer overleggen, taken verdelen en
+                            samen naar een goede oplossing werken.
+                        </p>
 
-                <div>
-                    <p class="section-label">MIJN ONTWIKKELING</p>
-                    <h2>Wat ik leer 📚</h2>
-                </div>
-
-                <p>
-                    Tijdens O&O leer ik niet alleen dingen maken,
-                    maar ook samenwerken en problemen oplossen.
-                </p>
-
-            </div>
-
-
-            <div class="learning-grid">
-
-                <div class="learning-card">
-
-                    <div class="learning-icon blue-icon">
-                        🔎
                     </div>
 
-                    <h3>Onderzoeken</h3>
 
-                    <p>
-                        Ik leer informatie zoeken, vragen stellen
-                        en verschillende oplossingen vergelijken.
-                    </p>
+                    <div class="learning-card">
 
-                </div>
+                        <div class="learning-icon icon-purple">
+                            🎤
+                        </div>
 
+                        <div class="learning-number">
+                            04
+                        </div>
 
-                <div class="learning-card">
+                        <h3>
+                            Presenteren
+                        </h3>
 
-                    <div class="learning-icon orange-icon">
-                        💡
+                        <p>
+                            Ik leer mijn ideeën en resultaten
+                            duidelijk uit te leggen aan anderen.
+                        </p>
+
                     </div>
 
-                    <h3>Ontwerpen</h3>
-
-                    <p>
-                        Ik leer ideeën bedenken en deze omzetten
-                        in een ontwerp.
-                    </p>
-
                 </div>
 
 
-                <div class="learning-card">
+                <div class="process">
 
-                    <div class="learning-icon green-icon">
-                        🤝
+                    <div class="process-title">
+                        <span>Mijn manier van werken</span>
                     </div>
 
-                    <h3>Samenwerken</h3>
+                    <div class="process-steps">
 
-                    <p>
-                        Ik leer goed overleggen en taken verdelen
-                        binnen een groep.
-                    </p>
+                        <div class="process-step">
+                            <div>1</div>
+                            <span>Onderzoeken</span>
+                        </div>
 
-                </div>
+                        <div class="process-arrow">
+                            →
+                        </div>
 
+                        <div class="process-step">
+                            <div>2</div>
+                            <span>Idee bedenken</span>
+                        </div>
 
-                <div class="learning-card">
+                        <div class="process-arrow">
+                            →
+                        </div>
 
-                    <div class="learning-icon purple-icon">
-                        🎤
+                        <div class="process-step">
+                            <div>3</div>
+                            <span>Ontwerpen</span>
+                        </div>
+
+                        <div class="process-arrow">
+                            →
+                        </div>
+
+                        <div class="process-step">
+                            <div>4</div>
+                            <span>Maken</span>
+                        </div>
+
+                        <div class="process-arrow">
+                            →
+                        </div>
+
+                        <div class="process-step">
+                            <div>5</div>
+                            <span>Verbeteren</span>
+                        </div>
+
                     </div>
-
-                    <h3>Presenteren</h3>
-
-                    <p>
-                        Ik leer mijn ideeën en resultaten duidelijk
-                        uit te leggen.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- OVER MIJ -->
-        <section class="section about-section" id="over-mij">
-
-            <div class="about-box">
-
-                <div class="about-icon">
-                    👨‍💻
-                </div>
-
-                <div class="about-text">
-
-                    <p class="section-label">
-                        OVER MIJ
-                    </p>
-
-                    <h2>Dit ben ik!</h2>
-
-                    <p>
-                        Ik ben Ivan en dit is mijn portfolio voor
-                        Onderzoeken & Ontwerpen. Op deze website
-                        laat ik zien wat ik heb gemaakt, welke
-                        projecten ik heb gedaan en wat ik daarvan
-                        heb geleerd.
-                    </p>
-
-                    <p>
-                        Ik vind het leuk om nieuwe dingen uit te
-                        proberen en zelf oplossingen te bedenken.
-                    </p>
 
                 </div>
 
@@ -543,13 +865,95 @@
         </section>
 
 
-        <!-- AFSLUITING -->
+        <!-- =========================================
+             OVER MIJ
+        ========================================== -->
+
+        <section class="about-section" id="over-mij">
+
+            <div class="section-container">
+
+                <div class="about-card">
+
+                    <div class="about-decoration decoration-one"></div>
+                    <div class="about-decoration decoration-two"></div>
+
+                    <div class="about-avatar">
+
+                        <div class="avatar-hair"></div>
+
+                        <div class="avatar-face">
+                            <span class="avatar-eye left"></span>
+                            <span class="avatar-eye right"></span>
+                            <span class="avatar-smile"></span>
+                        </div>
+
+                        <div class="avatar-shirt">
+                            O&O
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-content">
+
+                        <div class="section-kicker">
+                            <span></span>
+                            OVER MIJ
+                        </div>
+
+                        <h2>
+                            Dit ben ik!
+                        </h2>
+
+                        <p>
+                            Ik ben Ivan en dit is mijn portfolio voor
+                            Onderzoeken & Ontwerpen. Op deze website
+                            laat ik zien wat ik heb gemaakt, welke
+                            projecten ik heb gedaan en wat ik daarvan
+                            heb geleerd.
+                        </p>
+
+                        <p>
+                            Ik vind het leuk om nieuwe dingen uit te
+                            proberen, ideeën te bedenken en zelf
+                            oplossingen te maken.
+                        </p>
+
+                        <div class="about-pills">
+
+                            <span>🧠 Nieuwsgierig</span>
+                            <span>🔨 Maken</span>
+                            <span>💡 Ideeën</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             AFSLUITING
+        ========================================== -->
+
         <section class="final-section">
+
+            <div class="final-background-circle circle-one"></div>
+            <div class="final-background-circle circle-two"></div>
 
             <div class="final-content">
 
-                <div class="final-emoji">
+                <div class="final-icon">
                     🚀
+                </div>
+
+                <div class="section-kicker light">
+                    VOLGEND PROJECT
                 </div>
 
                 <h2>
@@ -560,8 +964,12 @@
                     Bedankt voor het bekijken van mijn portfolio.
                 </p>
 
-                <a href="#home" class="button primary">
-                    Terug naar boven ↑
+                <a
+                    href="#home"
+                    class="button button-white"
+                >
+                    Terug naar boven
+                    <span>↑</span>
                 </a>
 
             </div>
@@ -571,27 +979,43 @@
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
     <footer>
 
         <div class="footer-inner">
 
-            <strong>
-                Ivan's Portfolio
-            </strong>
+            <div class="footer-brand">
 
-            <span>
-                O&O • Technasium
-            </span>
+                <div class="footer-logo">
+                    I
+                </div>
 
-            <span id="year"></span>
+                <div>
+                    <strong>Ivan's Portfolio</strong>
+                    <span>O&O • Technasium</span>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+                <span>
+                    Gemaakt door Ivan
+                </span>
+
+                <span id="year"></span>
+            </div>
 
         </div>
 
     </footer>
 
 
-    <!-- PROJECT MODALS -->
+    <!-- =========================================
+         MODAL 1
+    ========================================== -->
 
     <div class="modal" id="modal0">
 
@@ -601,35 +1025,44 @@
                 ×
             </button>
 
-            <div class="modal-icon">
+            <div class="modal-big-icon blue-modal">
                 🐶
             </div>
 
-            <p class="section-label">
+            <div class="section-kicker">
+                <span></span>
                 TINKERCAD
-            </p>
+            </div>
 
-            <h2>Kleine hond</h2>
+            <h2>
+                Kleine hond
+            </h2>
 
             <p>
                 Voor dit project heb ik een kleine hond ontworpen
                 in Tinkercad. Hierbij heb ik geoefend met het
-                combineren van verschillende vormen.
+                combineren van verschillende vormen en het maken
+                van een 3D-model.
             </p>
 
             <a
                 href="https://www.tinkercad.com/things/jAqi5KYZl9v-school-project"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="button primary"
+                class="button button-primary"
             >
-                Open Tinkercad →
+                Open Tinkercad
+                <span>↗</span>
             </a>
 
         </div>
 
     </div>
 
+
+    <!-- =========================================
+         MODAL 2
+    ========================================== -->
 
     <div class="modal" id="modal1">
 
@@ -639,27 +1072,50 @@
                 ×
             </button>
 
-            <div class="modal-icon">
+            <div class="modal-big-icon orange-modal">
                 🎯
             </div>
 
-            <p class="section-label">
+            <div class="section-kicker">
+                <span></span>
                 VAKKANJERS
-            </p>
+            </div>
 
-            <h2>Play and Spray</h2>
+            <h2>
+                Play and Spray
+            </h2>
 
             <p>
                 Bij Play and Spray hebben we nagedacht over een
                 idee waarbij spelen en water samenkomen. We hebben
-                het probleem onderzocht en daarna gewerkt aan
-                een oplossing.
+                het probleem onderzocht en daarna gewerkt aan een
+                oplossing.
             </p>
+
+            <div class="modal-info-box">
+                <strong>Wat heb ik gedaan?</strong>
+
+                <span>
+                    💡 Ideeën bedenken
+                </span>
+
+                <span>
+                    🔎 Onderzoek doen
+                </span>
+
+                <span>
+                    🛠️ Een oplossing ontwerpen
+                </span>
+            </div>
 
         </div>
 
     </div>
 
+
+    <!-- =========================================
+         MODAL 3
+    ========================================== -->
 
     <div class="modal" id="modal2">
 
@@ -669,15 +1125,18 @@
                 ×
             </button>
 
-            <div class="modal-icon">
+            <div class="modal-big-icon green-modal">
                 🪑
             </div>
 
-            <p class="section-label">
+            <div class="section-kicker">
+                <span></span>
                 O&O PROJECT
-            </p>
+            </div>
 
-            <h2>Kantine inrichting</h2>
+            <h2>
+                Kantine inrichting
+            </h2>
 
             <p>
                 Voor dit project hebben we gekeken naar de
@@ -685,14 +1144,14 @@
                 gedaan, eisen opgesteld en ideeën uitgewerkt.
             </p>
 
-            <div class="pdf-links">
+            <div class="pdf-grid">
 
                 <a href="pdf/aqaulectra/Onderzoek.pdf" target="_blank">
                     📄 Onderzoek
                 </a>
 
                 <a href="pdf/aqaulectra/eisen%20(1).pdf" target="_blank">
-                    📄 Eisen
+                    📋 Eisen
                 </a>
 
                 <a href="pdf/aqaulectra/moodboard.pdf" target="_blank">
@@ -714,6 +1173,10 @@
     </div>
 
 
+    <!-- =========================================
+         MODAL 4
+    ========================================== -->
+
     <div class="modal" id="modal3">
 
         <div class="modal-box">
@@ -722,15 +1185,18 @@
                 ×
             </button>
 
-            <div class="modal-icon">
+            <div class="modal-big-icon purple-modal">
                 💧
             </div>
 
-            <p class="section-label">
+            <div class="section-kicker">
+                <span></span>
                 ZUIDERZEEMUSEUM
-            </p>
+            </div>
 
-            <h2>Waterproject</h2>
+            <h2>
+                Waterproject
+            </h2>
 
             <p>
                 Bij dit project hebben we onderzocht hoe we
@@ -738,6 +1204,22 @@
                 nagedacht over een machine die het water behandelt
                 met behulp van waterstofperoxide.
             </p>
+
+            <div class="modal-info-box">
+                <strong>Het idee</strong>
+
+                <span>
+                    💧 Water behandelen
+                </span>
+
+                <span>
+                    🔬 Onderzoeken
+                </span>
+
+                <span>
+                    ⚙️ Een machine bedenken
+                </span>
+            </div>
 
         </div>
 
