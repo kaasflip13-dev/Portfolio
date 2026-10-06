@@ -1,40 +1,52 @@
 /* =========================================================
-   IVAN'S O&O PORTFOLIO
-   Simpele JavaScript
-========================================================= */
+   IVAN'S PORTFOLIO
+   APP.JS
+   ========================================================= */
 
 
-/* =========================================================
-   JAARTAL
-========================================================= */
+/* -------------------------
+   JAAR IN FOOTER
+------------------------- */
 
 const yearElement = document.getElementById("year");
 
 if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
+    yearElement.textContent = "© " + new Date().getFullYear();
 }
 
 
-/* =========================================================
+/* -------------------------
    MOBIEL MENU
-========================================================= */
+------------------------- */
 
 const menuButton = document.getElementById("menuButton");
 const navMenu = document.getElementById("navMenu");
 
 if (menuButton && navMenu) {
 
-    menuButton.addEventListener("click", () => {
+    menuButton.addEventListener("click", function () {
+
         navMenu.classList.toggle("open");
+
+        if (navMenu.classList.contains("open")) {
+            menuButton.textContent = "✕";
+        } else {
+            menuButton.textContent = "☰";
+        }
+
     });
 
 
     const navLinks = navMenu.querySelectorAll("a");
 
-    navLinks.forEach(link => {
+    navLinks.forEach(function (link) {
 
-        link.addEventListener("click", () => {
+        link.addEventListener("click", function () {
+
             navMenu.classList.remove("open");
+
+            menuButton.textContent = "☰";
+
         });
 
     });
@@ -42,146 +54,87 @@ if (menuButton && navMenu) {
 }
 
 
-/* =========================================================
-   PROJECT MODALS OPENEN
-========================================================= */
+/* -------------------------
+   PROJECT MODALS
+------------------------- */
 
-const openButtons = document.querySelectorAll("[data-open-project]");
+const projectButtons =
+    document.querySelectorAll(".project-button");
 
-openButtons.forEach(button => {
+const modals =
+    document.querySelectorAll(".modal");
 
-    button.addEventListener("click", () => {
-
-        const modalId = button.getAttribute("data-open-project");
-
-        const modal = document.getElementById(modalId);
-
-        if (!modal) {
-            return;
-        }
-
-        modal.classList.add("show");
-
-        document.body.style.overflow = "hidden";
-
-    });
-
-});
+const closeButtons =
+    document.querySelectorAll(".close-modal");
 
 
-/* =========================================================
-   MODALS SLUITEN
-========================================================= */
+function openModal(number) {
 
-const modals = document.querySelectorAll(".modal");
+    const modal =
+        document.getElementById("modal" + number);
 
-modals.forEach(modal => {
-
-    const closeButton = modal.querySelector(".modal-close");
-
-    if (closeButton) {
-
-        closeButton.addEventListener("click", () => {
-            closeModal(modal);
-        });
-
+    if (!modal) {
+        return;
     }
 
+    modal.classList.add("show");
 
-    modal.addEventListener("click", event => {
+    document.body.style.overflow = "hidden";
 
-        if (event.target === modal) {
-            closeModal(modal);
-        }
+}
+
+
+function closeAllModals() {
+
+    modals.forEach(function (modal) {
+
+        modal.classList.remove("show");
 
     });
-
-});
-
-
-function closeModal(modal) {
-
-    modal.classList.remove("show");
 
     document.body.style.overflow = "";
 
 }
 
 
-/* =========================================================
-   ESCAPE OM MODAL TE SLUITEN
-========================================================= */
+/* Openen */
 
-document.addEventListener("keydown", event => {
+projectButtons.forEach(function (button) {
 
-    if (event.key !== "Escape") {
-        return;
-    }
+    button.addEventListener("click", function () {
 
-    modals.forEach(modal => {
+        const projectNumber =
+            button.getAttribute("data-project");
 
-        if (modal.classList.contains("show")) {
-            closeModal(modal);
-        }
+        openModal(projectNumber);
 
     });
 
 });
 
 
-/* =========================================================
-   AFBEELDINGEN
-   Als een afbeelding niet bestaat, laten we een nette
-   melding zien in plaats van een kapot plaatje.
-========================================================= */
+/* Sluiten */
 
-const images = document.querySelectorAll("img");
+closeButtons.forEach(function (button) {
 
-images.forEach(image => {
+    button.addEventListener("click", function () {
 
-    image.addEventListener("error", () => {
+        closeAllModals();
 
-        image.style.display = "none";
+    });
 
-        const container = image.parentElement;
+});
 
-        if (container) {
 
-            container.style.display = "flex";
-            container.style.alignItems = "center";
-            container.style.justifyContent = "center";
+/* Klik naast venster */
 
-            if (!container.querySelector(".image-error")) {
+modals.forEach(function (modal) {
 
-                const message = document.createElement("div");
+    modal.addEventListener("click", function (event) {
 
-                message.className = "image-error";
+        if (event.target === modal) {
 
-                message.innerHTML = `
-                    <div style="
-                        text-align:center;
-                        color:#68758a;
-                        padding:20px;
-                    ">
-                        <div style="
-                            font-size:2rem;
-                            margin-bottom:8px;
-                        ">📷</div>
-
-                        <strong>Afbeelding niet gevonden</strong>
-
-                        <div style="
-                            font-size:0.85rem;
-                            margin-top:4px;
-                        ">
-                            Controleer de bestandsnaam.
-                        </div>
-                    </div>
-                `;
-
-                container.appendChild(message);
-
-            }
+            closeAllModals();
 
         }
 
@@ -190,67 +143,39 @@ images.forEach(image => {
 });
 
 
-/* =========================================================
-   KLEINE SCROLL ANIMATIE
-========================================================= */
+/* ESCAPE */
 
-const animatedItems = document.querySelectorAll(
-    ".project-card, .learning-card, .about-box, .final-card"
-);
+document.addEventListener("keydown", function (event) {
 
+    if (event.key === "Escape") {
 
-const observer = new IntersectionObserver(
-    entries => {
+        closeAllModals();
 
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-
-                observer.unobserve(entry.target);
-
-            }
-
-        });
-
-    },
-    {
-        threshold: 0.08
     }
-);
-
-
-animatedItems.forEach(item => {
-
-    item.style.opacity = "0";
-    item.style.transform = "translateY(12px)";
-    item.style.transition =
-        "opacity 0.5s ease, transform 0.5s ease";
-
-    observer.observe(item);
 
 });
 
 
-/* =========================================================
-   SMOOTH SCROLL VOOR ANKERS
-========================================================= */
+/* -------------------------
+   SMOOTH SCROLL
+------------------------- */
 
-const anchorLinks = document.querySelectorAll('a[href^="#"]');
+document.querySelectorAll('a[href^="#"]').forEach(function (link) {
 
-anchorLinks.forEach(link => {
+    link.addEventListener("click", function (event) {
 
-    link.addEventListener("click", event => {
+        const targetId =
+            link.getAttribute("href");
 
-        const targetId = link.getAttribute("href");
-
-        if (!targetId || targetId === "#") {
+        if (
+            !targetId ||
+            targetId === "#"
+        ) {
             return;
         }
 
-        const target = document.querySelector(targetId);
+        const target =
+            document.querySelector(targetId);
 
         if (!target) {
             return;
@@ -268,31 +193,58 @@ anchorLinks.forEach(link => {
 });
 
 
-/* =========================================================
-   PROJECT HOVER
-========================================================= */
+/* -------------------------
+   KLEINE HOVER EFFECTEN
+------------------------- */
 
-const projectCards = document.querySelectorAll(".project-card");
+const cards =
+    document.querySelectorAll(
+        ".project-card, .learning-card"
+    );
 
-projectCards.forEach(card => {
+cards.forEach(function (card) {
 
-    card.addEventListener("mouseenter", () => {
+    card.addEventListener("mouseenter", function () {
 
-        card.classList.add("is-hovered");
+        card.classList.add("hovered");
 
     });
 
-    card.addEventListener("mouseleave", () => {
+    card.addEventListener("mouseleave", function () {
 
-        card.classList.remove("is-hovered");
+        card.classList.remove("hovered");
 
     });
 
 });
 
 
-/* =========================================================
-   KLAAR
-========================================================= */
+/* -------------------------
+   ESCAPE VOOR MENU
+------------------------- */
 
-console.log("Ivan's O&O portfolio is geladen!");
+document.addEventListener("keydown", function (event) {
+
+    if (
+        event.key === "Escape" &&
+        navMenu
+    ) {
+
+        navMenu.classList.remove("open");
+
+        if (menuButton) {
+            menuButton.textContent = "☰";
+        }
+
+    }
+
+});
+
+
+/* -------------------------
+   STARTMELDING
+------------------------- */
+
+console.log(
+    "Ivan's O&O Portfolio is geladen!"
+);
