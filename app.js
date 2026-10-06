@@ -1,692 +1,298 @@
 /* =========================================================
-   IVAN'S PORTFOLIO
-   JAVASCRIPT
-   ========================================================= */
+   IVAN'S O&O PORTFOLIO
+   Simpele JavaScript
+========================================================= */
 
 
-/* ---------------------------------------------------------
-   ELEMENTEN
---------------------------------------------------------- */
-
-const mobileMenuButton =
-    document.getElementById("mobileMenuButton");
-
-const mobileMenu =
-    document.getElementById("mobileMenu");
-
-const backToTop =
-    document.getElementById("backToTop");
-
-const yearElement =
-    document.getElementById("year");
-
-const navLinks =
-    document.querySelectorAll(".nav-link");
-
-const sections =
-    document.querySelectorAll("section[id]");
-
-const projectOpenButtons =
-    document.querySelectorAll("[data-open-project]");
-
-const closeButtons =
-    document.querySelectorAll("[data-close-modal]");
-
-const modals =
-    document.querySelectorAll(".modal");
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    JAARTAL
---------------------------------------------------------- */
+========================================================= */
+
+const yearElement = document.getElementById("year");
 
 if (yearElement) {
-    yearElement.textContent =
-        new Date().getFullYear();
+    yearElement.textContent = new Date().getFullYear();
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    MOBIEL MENU
---------------------------------------------------------- */
+========================================================= */
 
-function toggleMobileMenu() {
+const menuButton = document.getElementById("menuButton");
+const navMenu = document.getElementById("navMenu");
 
-    if (!mobileMenu) return;
+if (menuButton && navMenu) {
 
-    mobileMenu.classList.toggle("open");
-
-}
-
-
-if (mobileMenuButton) {
-
-    mobileMenuButton.addEventListener(
-        "click",
-        toggleMobileMenu
-    );
-
-}
+    menuButton.addEventListener("click", () => {
+        navMenu.classList.toggle("open");
+    });
 
 
-/* Sluit mobiel menu wanneer een link wordt aangeklikt */
+    const navLinks = navMenu.querySelectorAll("a");
 
-if (mobileMenu) {
+    navLinks.forEach(link => {
 
-    const mobileLinks =
-        mobileMenu.querySelectorAll("a");
-
-    mobileLinks.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            () => {
-                mobileMenu.classList.remove("open");
-            }
-        );
+        link.addEventListener("click", () => {
+            navMenu.classList.remove("open");
+        });
 
     });
 
 }
 
 
-/* ---------------------------------------------------------
-   MODALS
---------------------------------------------------------- */
+/* =========================================================
+   PROJECT MODALS OPENEN
+========================================================= */
 
-function openModal(number) {
+const openButtons = document.querySelectorAll("[data-open-project]");
 
-    const modal =
-        document.getElementById(
-            `modal${number}`
-        );
+openButtons.forEach(button => {
 
-    if (!modal) return;
+    button.addEventListener("click", () => {
 
-    modal.classList.add("open");
+        const modalId = button.getAttribute("data-open-project");
 
-    modal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
+        const modal = document.getElementById(modalId);
 
-    document.body.classList.add(
-        "modal-open"
-    );
+        if (!modal) {
+            return;
+        }
 
-}
+        modal.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
+
+
+/* =========================================================
+   MODALS SLUITEN
+========================================================= */
+
+const modals = document.querySelectorAll(".modal");
+
+modals.forEach(modal => {
+
+    const closeButton = modal.querySelector(".modal-close");
+
+    if (closeButton) {
+
+        closeButton.addEventListener("click", () => {
+            closeModal(modal);
+        });
+
+    }
+
+
+    modal.addEventListener("click", event => {
+
+        if (event.target === modal) {
+            closeModal(modal);
+        }
+
+    });
+
+});
 
 
 function closeModal(modal) {
 
-    if (!modal) return;
+    modal.classList.remove("show");
 
-    modal.classList.remove("open");
-
-    modal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-    document.body.classList.remove(
-        "modal-open"
-    );
+    document.body.style.overflow = "";
 
 }
 
 
-/* Open project */
+/* =========================================================
+   ESCAPE OM MODAL TE SLUITEN
+========================================================= */
 
-projectOpenButtons.forEach(button => {
+document.addEventListener("keydown", event => {
 
-    button.addEventListener(
-        "click",
-        event => {
+    if (event.key !== "Escape") {
+        return;
+    }
 
-            event.stopPropagation();
+    modals.forEach(modal => {
 
-            const number =
-                button.dataset.openProject;
-
-            openModal(number);
-
+        if (modal.classList.contains("show")) {
+            closeModal(modal);
         }
-    );
-
-});
-
-
-/* Klik op projectkaart */
-
-document
-    .querySelectorAll(".project-card[data-project]")
-    .forEach(card => {
-
-        card.addEventListener(
-            "click",
-            event => {
-
-                if (
-                    event.target.closest(
-                        "button"
-                    )
-                ) {
-                    return;
-                }
-
-                const number =
-                    card.dataset.project;
-
-                /*
-                 * Project 4 = coming soon.
-                 * Daar openen we geen modal.
-                 */
-
-                if (number === "4") {
-                    return;
-                }
-
-                openModal(number);
-
-            }
-        );
 
     });
 
-
-/* Sluiten */
-
-closeButtons.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            const modal =
-                button.closest(".modal");
-
-            closeModal(modal);
-
-        }
-    );
-
 });
 
 
-/* Klik buiten het venster */
+/* =========================================================
+   AFBEELDINGEN
+   Als een afbeelding niet bestaat, laten we een nette
+   melding zien in plaats van een kapot plaatje.
+========================================================= */
 
-modals.forEach(modal => {
+const images = document.querySelectorAll("img");
 
-    modal.addEventListener(
-        "click",
-        event => {
+images.forEach(image => {
 
-            if (
-                event.target.classList.contains(
-                    "modal"
-                )
-            ) {
-                closeModal(modal);
+    image.addEventListener("error", () => {
+
+        image.style.display = "none";
+
+        const container = image.parentElement;
+
+        if (container) {
+
+            container.style.display = "flex";
+            container.style.alignItems = "center";
+            container.style.justifyContent = "center";
+
+            if (!container.querySelector(".image-error")) {
+
+                const message = document.createElement("div");
+
+                message.className = "image-error";
+
+                message.innerHTML = `
+                    <div style="
+                        text-align:center;
+                        color:#68758a;
+                        padding:20px;
+                    ">
+                        <div style="
+                            font-size:2rem;
+                            margin-bottom:8px;
+                        ">📷</div>
+
+                        <strong>Afbeelding niet gevonden</strong>
+
+                        <div style="
+                            font-size:0.85rem;
+                            margin-top:4px;
+                        ">
+                            Controleer de bestandsnaam.
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(message);
+
             }
 
         }
-    );
+
+    });
 
 });
 
 
-/* Escape om te sluiten */
+/* =========================================================
+   KLEINE SCROLL ANIMATIE
+========================================================= */
 
-document.addEventListener(
-    "keydown",
-    event => {
+const animatedItems = document.querySelectorAll(
+    ".project-card, .learning-card, .about-box, .final-card"
+);
 
-        if (event.key !== "Escape") {
+
+const observer = new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    },
+    {
+        threshold: 0.08
+    }
+);
+
+
+animatedItems.forEach(item => {
+
+    item.style.opacity = "0";
+    item.style.transform = "translateY(12px)";
+    item.style.transition =
+        "opacity 0.5s ease, transform 0.5s ease";
+
+    observer.observe(item);
+
+});
+
+
+/* =========================================================
+   SMOOTH SCROLL VOOR ANKERS
+========================================================= */
+
+const anchorLinks = document.querySelectorAll('a[href^="#"]');
+
+anchorLinks.forEach(link => {
+
+    link.addEventListener("click", event => {
+
+        const targetId = link.getAttribute("href");
+
+        if (!targetId || targetId === "#") {
             return;
         }
 
-        const openModalElement =
-            document.querySelector(
-                ".modal.open"
-            );
+        const target = document.querySelector(targetId);
 
-        if (openModalElement) {
-            closeModal(openModalElement);
+        if (!target) {
+            return;
         }
 
-        if (
-            mobileMenu &&
-            mobileMenu.classList.contains("open")
-        ) {
-            mobileMenu.classList.remove("open");
-        }
+        event.preventDefault();
 
-    }
-);
-
-
-/* ---------------------------------------------------------
-   FOTO'S
---------------------------------------------------------- */
-
-/*
- * Als een foto niet gevonden wordt,
- * laten we geen lelijk kapot afbeeldings-icoon zien.
- */
-
-document
-    .querySelectorAll(".project-image img")
-    .forEach(image => {
-
-        image.addEventListener(
-            "error",
-            () => {
-
-                image.style.display =
-                    "none";
-
-                const wrapper =
-                    image.closest(
-                        ".project-image"
-                    );
-
-                if (wrapper) {
-
-                    wrapper.classList.add(
-                        "image-missing"
-                    );
-
-                }
-
-            }
-        );
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 
     });
 
+});
 
-/* ---------------------------------------------------------
-   SCROLL EFFECT
---------------------------------------------------------- */
 
-function handleScroll() {
-
-    const scrollY =
-        window.scrollY;
-
-    /* Back to top */
-
-    if (backToTop) {
-
-        if (scrollY > 500) {
-
-            backToTop.classList.add(
-                "show"
-            );
-
-        } else {
-
-            backToTop.classList.remove(
-                "show"
-            );
-
-        }
-
-    }
-
-
-    /* Navbar */
-
-    const navbar =
-        document.getElementById(
-            "navbar"
-        );
-
-    if (navbar) {
-
-        if (scrollY > 40) {
-
-            navbar.style.background =
-                "rgba(7, 10, 18, 0.88)";
-
-        } else {
-
-            navbar.style.background =
-                "rgba(7, 10, 18, 0.72)";
-
-        }
-
-    }
-
-
-    /* Actieve navigatie */
-
-    let currentSection = "";
-
-    sections.forEach(section => {
-
-        const sectionTop =
-            section.offsetTop - 180;
-
-        const sectionBottom =
-            sectionTop +
-            section.offsetHeight;
-
-        if (
-            scrollY >= sectionTop &&
-            scrollY < sectionBottom
-        ) {
-            currentSection =
-                section.id;
-        }
-
-    });
-
-
-    navLinks.forEach(link => {
-
-        link.classList.remove(
-            "active"
-        );
-
-        const href =
-            link.getAttribute("href");
-
-        if (
-            href ===
-            `#${currentSection}`
-        ) {
-            link.classList.add(
-                "active"
-            );
-        }
-
-    });
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    handleScroll,
-    {
-        passive: true
-    }
-);
-
-handleScroll();
-
-
-/* ---------------------------------------------------------
-   BACK TO TOP
---------------------------------------------------------- */
-
-if (backToTop) {
-
-    backToTop.addEventListener(
-        "click",
-        () => {
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
-    );
-
-}
-
-
-/* ---------------------------------------------------------
-   SCROLL REVEAL
---------------------------------------------------------- */
-
-const revealElements = [
-
-    ...document.querySelectorAll(
-        ".project-card"
-    ),
-
-    ...document.querySelectorAll(
-        ".about-grid"
-    ),
-
-    ...document.querySelectorAll(
-        ".cta-box"
-    )
-
-];
-
-
-revealElements.forEach(
-    element => {
-
-        element.classList.add(
-            "reveal"
-        );
-
-    }
-);
-
-
-if ("IntersectionObserver" in window) {
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-
-    revealElements.forEach(
-        element => {
-
-            observer.observe(
-                element
-            );
-
-        }
-    );
-
-} else {
-
-    revealElements.forEach(
-        element => {
-
-            element.classList.add(
-                "visible"
-            );
-
-        }
-    );
-
-}
-
-
-/* ---------------------------------------------------------
-   MUIS EFFECT OP HERO
---------------------------------------------------------- */
-
-const heroVisual =
-    document.querySelector(
-        ".hero-visual"
-    );
-
-if (heroVisual) {
-
-    heroVisual.addEventListener(
-        "mousemove",
-        event => {
-
-            const rect =
-                heroVisual.getBoundingClientRect();
-
-            const x =
-                (event.clientX - rect.left)
-                / rect.width
-                - 0.5;
-
-            const y =
-                (event.clientY - rect.top)
-                / rect.height
-                - 0.5;
-
-            const center =
-                heroVisual.querySelector(
-                    ".visual-center"
-                );
-
-            if (center) {
-
-                center.style.transform =
-                    `translate(${x * 10}px, ${y * 10}px)`;
-
-            }
-
-        }
-    );
-
-
-    heroVisual.addEventListener(
-        "mouseleave",
-        () => {
-
-            const center =
-                heroVisual.querySelector(
-                    ".visual-center"
-                );
-
-            if (center) {
-
-                center.style.transform =
-                    "translate(0, 0)";
-
-            }
-
-        }
-    );
-
-}
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    PROJECT HOVER
---------------------------------------------------------- */
+========================================================= */
 
-document
-    .querySelectorAll(".project-card")
-    .forEach(card => {
+const projectCards = document.querySelectorAll(".project-card");
 
-        card.addEventListener(
-            "mouseenter",
-            () => {
+projectCards.forEach(card => {
 
-                card.style.setProperty(
-                    "--mouse-x",
-                    "50%"
-                );
+    card.addEventListener("mouseenter", () => {
 
-                card.style.setProperty(
-                    "--mouse-y",
-                    "50%"
-                );
-
-            }
-        );
+        card.classList.add("is-hovered");
 
     });
 
+    card.addEventListener("mouseleave", () => {
 
-/* ---------------------------------------------------------
-   LINK ANIMATIE
---------------------------------------------------------- */
-
-document
-    .querySelectorAll(
-        'a[href^="#"]'
-    )
-    .forEach(link => {
-
-        link.addEventListener(
-            "click",
-            event => {
-
-                const targetId =
-                    link.getAttribute(
-                        "href"
-                    );
-
-                if (
-                    !targetId ||
-                    targetId === "#"
-                ) {
-                    return;
-                }
-
-                const target =
-                    document.querySelector(
-                        targetId
-                    );
-
-                if (!target) {
-                    return;
-                }
-
-                event.preventDefault();
-
-                const navbar =
-                    document.getElementById(
-                        "navbar"
-                    );
-
-                const offset =
-                    navbar
-                        ? navbar.offsetHeight + 25
-                        : 25;
-
-                const targetPosition =
-                    target.getBoundingClientRect()
-                        .top +
-                    window.scrollY -
-                    offset;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: "smooth"
-                });
-
-            }
-        );
+        card.classList.remove("is-hovered");
 
     });
 
+});
 
-/* ---------------------------------------------------------
-   START
---------------------------------------------------------- */
 
-console.log(
-    "Ivan's Portfolio is geladen."
-);
+/* =========================================================
+   KLAAR
+========================================================= */
+
+console.log("Ivan's O&O portfolio is geladen!");
