@@ -1,465 +1,997 @@
-```html
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>Ivan's Portfolio | O&O</title>
 
     <meta
         name="description"
-        content="EchoBound — The Lost Signal"
+        content="Ivan's persoonlijke O&O en Technasium portfolio."
     >
 
-    <title>EchoBound — The Lost Signal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =====================================================
-         START MENU
-         ===================================================== -->
-
-    <div id="menu" class="screen">
-
-        <div class="menu-box">
-
-            <div class="game-logo">
-                ECHO<span>BOUND</span>
-            </div>
-
-            <div class="game-subtitle">
-                THE LOST SIGNAL
-            </div>
-
-            <p class="menu-description">
-                Overleef. Verken. Vind het verloren signaal.
-            </p>
-
-            <div class="menu-buttons">
-
-                <button id="startBtn" class="menu-button primary">
-                    START GAME
-                </button>
-
-                <button id="continueBtn" class="menu-button">
-                    CONTINUE
-                </button>
-
-                <button id="achievementsBtn" class="menu-button">
-                    ACHIEVEMENTS
-                </button>
-
-            </div>
-
-            <div class="menu-info">
-                WASD = bewegen &nbsp; • &nbsp;
-                Muis = richten &nbsp; • &nbsp;
-                Klik = schieten
-            </div>
-
-        </div>
-
+    <!-- ACHTERGROND -->
+    <div class="background-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+        <div class="grid-background"></div>
     </div>
 
-
-    <!-- =====================================================
-         ACHIEVEMENTS
-         ===================================================== -->
-
-    <div id="achievementsScreen" class="screen hidden">
-
-        <div class="panel">
-
-            <button
-                id="achievementsBackBtn"
-                class="back-button"
-            >
-                ← TERUG
-            </button>
-
-            <h1>ACHIEVEMENTS</h1>
-
-            <p class="panel-subtitle">
-                Ontdek wat je hebt bereikt.
-            </p>
-
-            <div id="achievementsList" class="achievements-list">
-
-                <div class="achievement locked">
-                    <div class="achievement-icon">
-                        ?
-                    </div>
-
-                    <div>
-                        <h3>FIRST SIGNAL</h3>
-                        <p>Start je eerste missie.</p>
-                    </div>
-                </div>
-
-                <div class="achievement locked">
-                    <div class="achievement-icon">
-                        ?
-                    </div>
-
-                    <div>
-                        <h3>EXPLORER</h3>
-                        <p>Verken de wereld.</p>
-                    </div>
-                </div>
-
-                <div class="achievement locked">
-                    <div class="achievement-icon">
-                        ?
-                    </div>
-
-                    <div>
-                        <h3>SURVIVOR</h3>
-                        <p>Overleef een gevaarlijke aanval.</p>
-                    </div>
-                </div>
-
-                <div class="achievement locked">
-                    <div class="achievement-icon">
-                        ?
-                    </div>
-
-                    <div>
-                        <h3>COLLECTOR</h3>
-                        <p>Verzamel grondstoffen.</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         GAME
-         ===================================================== -->
-
-    <main id="gameScreen" class="hidden">
-
-        <canvas id="game"></canvas>
-
-
-        <!-- =================================================
-             HUD
-             ================================================= -->
-
-        <div id="hud">
-
-            <!-- Linksboven -->
-
-            <div id="playerHud" class="hud-panel">
-
-                <div class="hud-title">
-                    ECHOBOUND
-                </div>
-
-                <div class="stat">
-
-                    <span>
-                        HEALTH
-                    </span>
-
-                    <div class="bar">
-                        <div
-                            id="healthBar"
-                            class="bar-fill health"
-                        ></div>
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <span>
-                        ENERGY
-                    </span>
-
-                    <div class="bar">
-                        <div
-                            id="energyBar"
-                            class="bar-fill energy"
-                        ></div>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Rechtsboven -->
-
-            <div id="missionHud" class="hud-panel">
-
-                <div class="hud-small-title">
-                    MISSION
-                </div>
-
-                <div id="objective">
-                    Zoek naar het verloren signaal.
-                </div>
-
-                <div id="zone">
-                    UNKNOWN ZONE
-                </div>
-
-            </div>
-
-
-            <!-- Rechtsonder -->
-
-            <div id="weaponHud" class="hud-panel">
-
-                <div id="weaponName">
-                    PULSE
-                </div>
-
-                <div id="ammo">
-                    12 / 12
-                </div>
-
-                <div class="weapon-help">
-                    1 / 2 / 3 = Wapen
-                    <br>
-                    R = Herladen
-                </div>
-
-            </div>
-
-
-            <!-- Linksonder -->
-
-            <div id="statsHud" class="hud-panel">
-
-                <div>
-                    KILLS:
-                    <strong id="kills">0</strong>
-                </div>
-
-                <div>
-                    CREDITS:
-                    <strong id="credits">0</strong>
-                </div>
-
-            </div>
-
-
-            <!-- Midden -->
-
-            <div id="crosshair">
-                <span></span>
-            </div>
-
-
-            <!-- Meldingen -->
-
-            <div id="messageBox"></div>
-
-        </div>
-
-
-        <!-- =================================================
-             PAUSE MENU
-             ================================================= -->
-
-        <div id="pause" class="overlay hidden">
-
-            <div class="pause-box">
-
-                <h1>PAUSED</h1>
-
-                <p>
-                    Het spel staat tijdelijk stil.
-                </p>
-
-                <button
-                    id="resumeBtn"
-                    class="menu-button primary"
-                >
-                    RESUME
-                </button>
-
-                <button
-                    id="pauseMenuBtn"
-                    class="menu-button"
-                >
-                    MAIN MENU
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             GAME OVER
-             ================================================= -->
-
-        <div id="gameOver" class="overlay hidden">
-
-            <div class="gameover-box">
-
-                <div class="gameover-title">
-                    SIGNAL LOST
-                </div>
-
-                <p>
-                    Je missie is beëindigd.
-                </p>
-
-                <div class="gameover-stats">
-
-                    <div>
-                        KILLS
-                        <strong id="gameOverKills">
-                            0
-                        </strong>
-                    </div>
-
-                    <div>
-                        CREDITS
-                        <strong id="gameOverCredits">
-                            0
-                        </strong>
-                    </div>
-
-                </div>
-
-                <button
-                    id="restartBtn"
-                    class="menu-button primary"
-                >
-                    TRY AGAIN
-                </button>
-
-                <button
-                    id="gameOverMenuBtn"
-                    class="menu-button"
-                >
-                    MAIN MENU
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             BUILD MENU
-             ================================================= -->
-
-        <div
-            id="buildMenu"
-            class="build-menu hidden"
+    <!-- NAVIGATIE -->
+    <header class="navbar" id="navbar">
+
+        <a href="#home" class="logo">
+            <span class="logo-box">I</span>
+            <span class="logo-text">
+                Ivan<span>'s</span> Portfolio
+            </span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#projecten" class="nav-link">Projecten</a>
+            <a href="#over" class="nav-link">Over</a>
+        </nav>
+
+        <a href="#projecten" class="nav-button">
+            <span>O&O</span>
+            <span class="nav-arrow">↗</span>
+        </a>
+
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Menu openen"
         >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-            <div class="build-header">
+    </header>
 
-                <strong>
-                    BUILD
-                </strong>
+    <!-- MOBIEL MENU -->
+    <div class="mobile-menu" id="mobileMenu">
 
-                <button
-                    id="closeBuildBtn"
-                    type="button"
-                >
-                    ×
-                </button>
+        <a href="#home">Home</a>
+        <a href="#projecten">Projecten</a>
+        <a href="#over">Over</a>
+
+        <a href="#projecten" class="mobile-menu-project">
+            Bekijk projecten →
+        </a>
+
+    </div>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero section" id="home">
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    <span class="status-dot"></span>
+                    TECHNASIUM
+                    <span class="badge-line"></span>
+                    O&O PORTFOLIO
+                </div>
+
+                <h1>
+                    Van idee
+                    <span>naar</span>
+                    <strong>ontwerp.</strong>
+                </h1>
+
+                <p class="hero-description">
+                    Welkom in mijn portfolio. Hier laat ik zien aan welke
+                    Onderzoek & Ontwerpen-projecten ik heb gewerkt, welke
+                    ideeën ik heb onderzocht en welke oplossingen ik heb
+                    ontworpen.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projecten" class="primary-button">
+                        <span>Bekijk mijn projecten</span>
+                        <span class="button-icon">↓</span>
+                    </a>
+
+                    <a href="#over" class="secondary-button">
+                        Meer over dit portfolio
+                    </a>
+
+                </div>
+
+                <div class="hero-info">
+
+                    <div class="info-item">
+                        <strong>04</strong>
+                        <span>Projecten</span>
+                    </div>
+
+                    <div class="info-separator"></div>
+
+                    <div class="info-item">
+                        <strong>O&O</strong>
+                        <span>Onderzoek & Ontwerpen</span>
+                    </div>
+
+                    <div class="info-separator"></div>
+
+                    <div class="info-item">
+                        <strong>∞</strong>
+                        <span>Ideeën</span>
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <button
-                class="build-option"
-                data-build="wall"
-            >
-                <span>WALL</span>
-                <small>Build a wall</small>
-            </button>
+            <!-- RECHTER HERO VISUAL -->
+            <div class="hero-visual">
+
+                <div class="visual-ring ring-one"></div>
+                <div class="visual-ring ring-two"></div>
+                <div class="visual-ring ring-three"></div>
+
+                <div class="visual-center">
+
+                    <div class="center-small">
+                        O&O
+                    </div>
+
+                    <div class="center-big">
+                        IV
+                    </div>
+
+                    <div class="center-line"></div>
+
+                    <div class="center-label">
+                        CREATIVE<br>
+                        THINKING
+                    </div>
+
+                </div>
 
 
-            <button
-                class="build-option"
-                data-build="machine"
-            >
-                <span>MACHINE</span>
-                <small>Place a machine</small>
-            </button>
+                <div class="floating-card card-top">
+                    <span class="floating-icon">⌁</span>
+                    <div>
+                        <strong>Onderzoeken</strong>
+                        <small>Probleem → inzicht</small>
+                    </div>
+                </div>
+
+                <div class="floating-card card-bottom">
+                    <span class="floating-icon">✦</span>
+                    <div>
+                        <strong>Ontwerpen</strong>
+                        <small>Inzicht → oplossing</small>
+                    </div>
+                </div>
+
+            </div>
 
 
-            <button
-                class="build-option"
-                data-build="generator"
-            >
-                <span>GENERATOR</span>
-                <small>Power your base</small>
-            </button>
+            <a href="#projecten" class="scroll-indicator">
+                <span class="scroll-mouse">
+                    <span></span>
+                </span>
+                <span>Scroll om te ontdekken</span>
+            </a>
 
-        </div>
+        </section>
 
 
-        <!-- =================================================
-             CONTROLS
-             ================================================= -->
+        <!-- PROJECTEN -->
+        <section class="projects-section section" id="projecten">
 
-        <div id="controlsHint">
+            <div class="section-heading">
 
-            <span>
-                WASD
-            </span>
-            Move
+                <div>
+                    <div class="section-eyebrow">
+                        <span></span>
+                        MIJN WERK
+                    </div>
 
-            <span>
-                SHIFT
-            </span>
-            Sprint
+                    <h2>
+                        Projecten die
+                        <span>ik heb gemaakt.</span>
+                    </h2>
+                </div>
 
-            <span>
-                SPACE
-            </span>
-            Dash
+                <p>
+                    Van 3D-modellen tot oplossingen voor echte problemen.
+                    Bekijk hieronder mijn projecten.
+                </p>
 
-            <span>
-                E
-            </span>
-            Build
+            </div>
 
-        </div>
+
+            <div class="projects-grid">
+
+
+                <!-- PROJECT 01 -->
+                <article
+                    class="project-card project-large"
+                    data-project="0"
+                >
+
+                    <div class="project-image">
+
+                        <img
+                            src="img/tinkercad.png"
+                            alt="Tinkercad kleine hond"
+                            loading="lazy"
+                        >
+
+                        <div class="image-overlay"></div>
+
+                        <div class="project-number">
+                            01
+                        </div>
+
+                        <div class="project-category">
+                            3D DESIGN
+                        </div>
+
+                        <button
+                            class="project-open"
+                            type="button"
+                            data-open-project="0"
+                            aria-label="Project Tinkercad openen"
+                        >
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+                            <span>01</span>
+                            <span>•</span>
+                            <span>Tinkercad</span>
+                        </div>
+
+                        <h3>
+                            Project Tinkercad kleine hond
+                        </h3>
+
+                        <p>
+                            Een 3D-ontwerp waarbij ik een kleine hond
+                            heb ontworpen in Tinkercad.
+                        </p>
+
+                        <button
+                            class="text-button"
+                            type="button"
+                            data-open-project="0"
+                        >
+                            Bekijk project
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 02 -->
+                <article
+                    class="project-card"
+                    data-project="1"
+                >
+
+                    <div class="project-image">
+
+                        <img
+                            src="vakkanjers.jpg"
+                            alt="Vakkanjers project"
+                            loading="lazy"
+                        >
+
+                        <div class="image-overlay"></div>
+
+                        <div class="project-number">
+                            02
+                        </div>
+
+                        <div class="project-category">
+                            VAKKANJERS
+                        </div>
+
+                        <button
+                            class="project-open"
+                            type="button"
+                            data-open-project="1"
+                            aria-label="Project Vakkanjers openen"
+                        >
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+                            <span>02</span>
+                            <span>•</span>
+                            <span>Innovatie</span>
+                        </div>
+
+                        <h3>
+                            Project Vakkanjers
+                        </h3>
+
+                        <p>
+                            Een oplossing voor afval tijdens een festival:
+                            Play and Spray.
+                        </p>
+
+                        <button
+                            class="text-button"
+                            type="button"
+                            data-open-project="1"
+                        >
+                            Bekijk project
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 03 -->
+                <article
+                    class="project-card"
+                    data-project="2"
+                >
+
+                    <div class="project-image">
+
+                        <img
+                            src="img/aqualectra.jpg"
+                            alt="Aqualectra kantine inrichting"
+                            loading="lazy"
+                        >
+
+                        <div class="image-overlay"></div>
+
+                        <div class="project-number">
+                            03
+                        </div>
+
+                        <div class="project-category">
+                            AQUALectra
+                        </div>
+
+                        <button
+                            class="project-open"
+                            type="button"
+                            data-open-project="2"
+                            aria-label="Kantine project openen"
+                        >
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+                            <span>03</span>
+                            <span>•</span>
+                            <span>Interieur</span>
+                        </div>
+
+                        <h3>
+                            Kantine inrichting
+                        </h3>
+
+                        <p>
+                            Onderzoek en ontwerp voor een nieuwe
+                            inrichting van een kantine.
+                        </p>
+
+                        <button
+                            class="text-button"
+                            type="button"
+                            data-open-project="2"
+                        >
+                            Bekijk project
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 04 -->
+                <article
+                    class="project-card project-large"
+                    data-project="3"
+                >
+
+                    <div class="project-image">
+
+                        <img
+                            src="image.jpg"
+                            alt="Zuiderzeemuseum project"
+                            loading="lazy"
+                        >
+
+                        <div class="image-overlay"></div>
+
+                        <div class="project-number">
+                            04
+                        </div>
+
+                        <div class="project-category">
+                            ZUIDERZEEMUSEUM
+                        </div>
+
+                        <button
+                            class="project-open"
+                            type="button"
+                            data-open-project="3"
+                            aria-label="Zuiderzeemuseum project openen"
+                        >
+                            ↗
+                        </button>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-meta">
+                            <span>04</span>
+                            <span>•</span>
+                            <span>Techniek</span>
+                        </div>
+
+                        <h3>
+                            Zuiderzeemuseum
+                        </h3>
+
+                        <p>
+                            Een ontwerp voor het verwijderen van
+                            blauwgroene algen uit het water.
+                        </p>
+
+                        <button
+                            class="text-button"
+                            type="button"
+                            data-open-project="3"
+                        >
+                            Bekijk project
+                            <span>→</span>
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PROJECT 05 -->
+                <article
+                    class="project-card coming-soon-card"
+                    data-project="4"
+                >
+
+                    <div class="coming-soon-content">
+
+                        <div class="coming-icon">
+                            +
+                        </div>
+
+                        <div class="section-eyebrow">
+                            <span></span>
+                            BINNENKORT
+                        </div>
+
+                        <h3>
+                            Nieuw project
+                        </h3>
+
+                        <p>
+                            Hier komt binnenkort een nieuw O&O-project.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- OVER -->
+        <section class="about-section section" id="over">
+
+            <div class="about-grid">
+
+                <div class="about-title">
+
+                    <div class="section-eyebrow">
+                        <span></span>
+                        OVER DIT PORTFOLIO
+                    </div>
+
+                    <h2>
+                        Denken.
+                        <br>
+                        Maken.
+                        <br>
+                        <span>Verbeteren.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <p class="about-intro">
+                        Dit portfolio laat mijn ontwikkeling binnen
+                        Onderzoek & Ontwerpen zien.
+                    </p>
+
+                    <p>
+                        Bij O&O gaat het niet alleen om het eindresultaat.
+                        Ook het onderzoeken van een probleem, het bedenken
+                        van ideeën en het verbeteren van een ontwerp zijn
+                        belangrijke onderdelen van een project.
+                    </p>
+
+                    <div class="process-list">
+
+                        <div class="process-item">
+                            <span>01</span>
+                            <div>
+                                <strong>Onderzoeken</strong>
+                                <p>
+                                    Het probleem en de mogelijkheden
+                                    ontdekken.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="process-item">
+                            <span>02</span>
+                            <div>
+                                <strong>Ontwerpen</strong>
+                                <p>
+                                    Ideeën omzetten naar een mogelijke
+                                    oplossing.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="process-item">
+                            <span>03</span>
+                            <div>
+                                <strong>Verbeteren</strong>
+                                <p>
+                                    Testen, aanpassen en het ontwerp
+                                    steeds beter maken.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CTA -->
+        <section class="cta-section section">
+
+            <div class="cta-box">
+
+                <div class="cta-glow"></div>
+
+                <div class="cta-content">
+
+                    <div class="section-eyebrow">
+                        <span></span>
+                        BEDANKT VOOR HET KIJKEN
+                    </div>
+
+                    <h2>
+                        Klaar om mijn
+                        <span>projecten</span>
+                        te bekijken?
+                    </h2>
+
+                    <a href="#projecten" class="primary-button">
+                        Bekijk projecten
+                        <span class="button-icon">→</span>
+                    </a>
+
+                </div>
+
+                <div class="cta-symbol">
+                    IV
+                </div>
+
+            </div>
+
+        </section>
 
     </main>
 
 
-    <!-- =====================================================
-         FIREBASE
-         ===================================================== -->
+    <!-- FOOTER -->
+    <footer class="footer">
 
-    <!--
-        Firebase kan later in app.js worden gebruikt.
+        <div class="footer-top">
 
-        De game werkt ook zonder Firebase.
-        Zet je Firebase-configuratie alleen in app.js
-        wanneer je save-systeem klaar is.
-    -->
+            <a href="#home" class="logo">
+                <span class="logo-box">I</span>
+                <span class="logo-text">
+                    Ivan<span>'s</span> Portfolio
+                </span>
+            </a>
+
+            <p>
+                Onderzoek & Ontwerpen • Technasium
+            </p>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <span>
+                © <span id="year"></span> Ivan's Portfolio
+            </span>
+
+            <a href="#home">
+                Terug naar boven ↑
+            </a>
+
+        </div>
+
+    </footer>
 
 
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
+    <!-- MODAL PROJECT 1 -->
+    <div class="modal" id="modal0" aria-hidden="true">
+
+        <div class="modal-backdrop" data-close-modal></div>
+
+        <div class="modal-window">
+
+            <button
+                class="modal-close"
+                type="button"
+                data-close-modal
+                aria-label="Venster sluiten"
+            >
+                ×
+            </button>
+
+            <div class="modal-header">
+
+                <div class="modal-number">
+                    01
+                </div>
+
+                <div>
+                    <div class="modal-label">
+                        3D DESIGN
+                    </div>
+
+                    <h2>
+                        Project Tinkercad kleine hond
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    Voor dit project heb ik gewerkt met Tinkercad.
+                    Het doel was om een kleine hond als 3D-model
+                    te ontwerpen.
+                </p>
+
+                <p>
+                    Tijdens het ontwerpen heb ik verschillende vormen
+                    gecombineerd en gekeken hoe ik het model zo goed
+                    mogelijk kon opbouwen.
+                </p>
+
+                <div class="modal-tags">
+                    <span>3D ontwerpen</span>
+                    <span>Tinkercad</span>
+                    <span>Ontwerpen</span>
+                </div>
+
+                <a
+                    href="https://www.tinkercad.com/things/jAqi5KYZl9v-school-project"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="modal-link"
+                >
+                    Open project in Tinkercad
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL PROJECT 2 -->
+    <div class="modal" id="modal1" aria-hidden="true">
+
+        <div class="modal-backdrop" data-close-modal></div>
+
+        <div class="modal-window">
+
+            <button
+                class="modal-close"
+                type="button"
+                data-close-modal
+                aria-label="Venster sluiten"
+            >
+                ×
+            </button>
+
+            <div class="modal-header">
+
+                <div class="modal-number">
+                    02
+                </div>
+
+                <div>
+                    <div class="modal-label">
+                        VAKKANJERS
+                    </div>
+
+                    <h2>
+                        Project Vakkanjers
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    Voor dit project hebben we nagedacht over een
+                    probleem rondom afval tijdens festivals.
+                </p>
+
+                <p>
+                    Onze oplossing heet <strong>Play and Spray</strong>.
+                    Het ontwerp is gericht op een groenere en leukere
+                    festivalomgeving.
+                </p>
+
+                <div class="modal-tags">
+                    <span>Vakkanjers</span>
+                    <span>Duurzaamheid</span>
+                    <span>Ontwerpen</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL PROJECT 3 -->
+    <div class="modal" id="modal2" aria-hidden="true">
+
+        <div class="modal-backdrop" data-close-modal></div>
+
+        <div class="modal-window">
+
+            <button
+                class="modal-close"
+                type="button"
+                data-close-modal
+                aria-label="Venster sluiten"
+            >
+                ×
+            </button>
+
+            <div class="modal-header">
+
+                <div class="modal-number">
+                    03
+                </div>
+
+                <div>
+                    <div class="modal-label">
+                        AQUALectra
+                    </div>
+
+                    <h2>
+                        Kantine inrichting
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    Voor dit project heb ik onderzoek gedaan naar
+                    de inrichting van een kantine en de wensen en
+                    eisen die daarbij horen.
+                </p>
+
+                <p>
+                    Hieronder staan verschillende documenten uit
+                    het project.
+                </p>
+
+                <div class="document-list">
+
+                    <a
+                        href="pdf/aqaulectra/Onderzoek.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span class="document-icon">PDF</span>
+                        <span>Onderzoek</span>
+                        <span>↗</span>
+                    </a>
+
+                    <a
+                        href="pdf/aqaulectra/eisen (1).pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span class="document-icon">PDF</span>
+                        <span>Eisen</span>
+                        <span>↗</span>
+                    </a>
+
+                    <a
+                        href="pdf/aqaulectra/moodboard.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span class="document-icon">PDF</span>
+                        <span>Moodboard</span>
+                        <span>↗</span>
+                    </a>
+
+                    <a
+                        href="pdf/aqaulectra/O&O Project Hub.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span class="document-icon">PDF</span>
+                        <span>O&O Project Hub</span>
+                        <span>↗</span>
+                    </a>
+
+                    <a
+                        href="pdf/aqaulectra/logboek O&O.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span class="document-icon">PDF</span>
+                        <span>Logboek O&O</span>
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MODAL PROJECT 4 -->
+    <div class="modal" id="modal3" aria-hidden="true">
+
+        <div class="modal-backdrop" data-close-modal></div>
+
+        <div class="modal-window">
+
+            <button
+                class="modal-close"
+                type="button"
+                data-close-modal
+                aria-label="Venster sluiten"
+            >
+                ×
+            </button>
+
+            <div class="modal-header">
+
+                <div class="modal-number">
+                    04
+                </div>
+
+                <div>
+                    <div class="modal-label">
+                        ZUIDERZEEMUSEUM
+                    </div>
+
+                    <h2>
+                        Blauwgroene algen
+                    </h2>
+                </div>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    Voor het Zuiderzeemuseum hebben we gekeken naar
+                    een manier om blauwgroene algen uit het water
+                    te verwijderen.
+                </p>
+
+                <p>
+                    Een onderdeel van het ontwerp was een machine
+                    die waterstofperoxide kan verspreiden om de
+                    algen te bestrijden.
+                </p>
+
+                <div class="modal-tags">
+                    <span>Onderzoek</span>
+                    <span>Techniek</span>
+                    <span>Water</span>
+                    <span>Ontwerpen</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TERUG NAAR BOVEN -->
+    <button
+        class="back-to-top"
+        id="backToTop"
+        type="button"
+        aria-label="Terug naar boven"
+    >
+        ↑
+    </button>
+
 
     <script src="app.js"></script>
 
 </body>
 </html>
-```
