@@ -1,1879 +1,464 @@
 ```html
 <!DOCTYPE html>
 <html lang="nl">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Ivan's Portfolio | O&O</title>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
-    <style>
+    <meta
+        name="description"
+        content="EchoBound — The Lost Signal"
+    >
 
-        /* =====================================================
-           BASIS
-        ===================================================== */
+    <title>EchoBound — The Lost Signal</title>
 
-        :root {
-            --background: #050914;
-            --background-light: #0b1220;
-
-            --card: rgba(255, 255, 255, 0.055);
-            --card-hover: rgba(255, 255, 255, 0.09);
-
-            --border: rgba(255, 255, 255, 0.11);
-
-            --blue: #38bdf8;
-            --blue-dark: #0284c7;
-
-            --white: #f8fafc;
-            --text: #dbeafe;
-            --muted: #94a3b8;
-
-            --red: #ef4444;
-
-            --title-font: 'Plus Jakarta Sans', sans-serif;
-            --body-font: 'Poppins', sans-serif;
-        }
-
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-            font-family: var(--body-font);
-            background:
-                radial-gradient(
-                    circle at 10% 10%,
-                    rgba(56, 189, 248, 0.12),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 90% 80%,
-                    rgba(37, 99, 235, 0.10),
-                    transparent 30%
-                ),
-                var(--background);
-
-            color: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-
-        /* =====================================================
-           ACHTERGRONt
-        ===================================================== */
-
-        body::before {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            top: -200px;
-            left: -200px;
-
-            background: var(--blue);
-
-            opacity: 0.08;
-            filter: blur(130px);
-
-            border-radius: 50%;
-
-            pointer-events: none;
-            z-index: -1;
-        }
-
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            right: -200px;
-            bottom: -200px;
-
-            background: #2563eb;
-
-            opacity: 0.08;
-            filter: blur(130px);
-
-            border-radius: 50%;
-
-            pointer-events: none;
-            z-index: -1;
-        }
-
-
-        /* =====================================================
-           NAVIGATIE
-        ===================================================== */
-
-        nav {
-            position: fixed;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-            height: 74px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 50px;
-
-            background: rgba(5, 9, 20, 0.72);
-
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-
-            border-bottom: 1px solid var(--border);
-
-            z-index: 1000;
-        }
-
-
-        .nav-logo {
-            font-family: var(--title-font);
-
-            font-size: 1.35rem;
-            font-weight: 800;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    #ffffff,
-                    var(--blue)
-                );
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-
-        .nav-right {
-            color: var(--muted);
-
-            font-size: 0.75rem;
-            font-weight: 600;
-
-            letter-spacing: 2px;
-        }
-
-
-        /* =====================================================
-           ALGEMENE SECTIES
-        ===================================================== */
-
-        .section {
-            min-height: 100vh;
-
-            padding:
-                120px
-                25px
-                100px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-
-        /* =====================================================
-           GLASS
-        ===================================================== */
-
-        .glass {
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.25);
-        }
-
-
-        /* =====================================================
-           HOME
-        ===================================================== */
-
-        #home {
-            text-align: center;
-        }
-
-
-        .hero {
-            max-width: 950px;
-
-            padding: 80px 50px;
-
-            border-radius: 35px;
-
-            animation: heroAppear 0.8s ease forwards;
-        }
-
-
-        @keyframes heroAppear {
-
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-
-        .hero-label {
-            color: var(--blue);
-
-            font-size: 0.8rem;
-            font-weight: 600;
-
-            letter-spacing: 4px;
-
-            margin-bottom: 20px;
-        }
-
-
-        h1 {
-            font-family: var(--title-font);
-
-            font-size:
-                clamp(
-                    2.8rem,
-                    8vw,
-                    5.5rem
-                );
-
-            line-height: 1.05;
-
-            margin-bottom: 25px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ffffff 25%,
-                    var(--blue)
-                );
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-
-        .hero-text {
-            max-width: 700px;
-
-            margin: 0 auto 35px;
-
-            color: var(--muted);
-
-            font-size: 1.1rem;
-        }
-
-
-        /* =====================================================
-           BUTTON
-        ===================================================== */
-
-        .btn {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 13px 25px;
-
-            border: none;
-
-            border-radius: 14px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--blue),
-                    var(--blue-dark)
-                );
-
-            color: #03101b;
-
-            font-family: var(--title-font);
-
-            font-weight: 800;
-
-            text-decoration: none;
-
-            cursor: pointer;
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-        }
-
-
-        .btn:hover {
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 10px 30px
-                rgba(56, 189, 248, 0.3);
-        }
-
-
-        /* =====================================================
-           PROJECTEN
-        ===================================================== */
-
-        #werk {
-            align-items: flex-start;
-        }
-
-
-        .section-title {
-            font-family: var(--title-font);
-
-            text-align: center;
-
-            font-size:
-                clamp(
-                    2rem,
-                    5vw,
-                    3rem
-                );
-
-            margin-bottom: 55px;
-        }
-
-
-        .section-title span {
-            color: var(--blue);
-        }
-
-
-        .grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(300px, 1fr)
-                );
-
-            gap: 28px;
-        }
-
-
-        /* =====================================================
-           PROJECT CARD
-        ===================================================== */
-
-        .project-card {
-            display: flex;
-            flex-direction: column;
-
-            overflow: hidden;
-
-            border-radius: 25px;
-
-            transition:
-                transform 0.35s ease,
-                border-color 0.35s ease,
-                background 0.35s ease;
-        }
-
-
-        .project-card:hover {
-            transform: translateY(-10px);
-
-            background: var(--card-hover);
-
-            border-color:
-                rgba(56, 189, 248, 0.45);
-        }
-
-
-        .project-img {
-            width: 100%;
-            height: 230px;
-
-            object-fit: cover;
-
-            display: block;
-
-            background: #0f172a;
-
-            border-bottom:
-                1px solid var(--border);
-        }
-
-
-        .project-info {
-            padding: 28px;
-
-            display: flex;
-            flex-direction: column;
-
-            flex: 1;
-        }
-
-
-        .project-number {
-            color: var(--blue);
-
-            font-size: 0.75rem;
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 8px;
-        }
-
-
-        .project-info h3 {
-            font-family: var(--title-font);
-
-            font-size: 1.45rem;
-
-            margin-bottom: 12px;
-        }
-
-
-        .project-info p {
-            color: var(--muted);
-
-            font-size: 0.95rem;
-
-            margin-bottom: 22px;
-
-            flex: 1;
-        }
-
-
-        .project-info .btn {
-            align-self: flex-start;
-        }
-
-
-        /* =====================================================
-           MODAL
-        ===================================================== */
-
-        .modal {
-            position: fixed;
-
-            inset: 0;
-
-            width: 100%;
-            height: 100%;
-
-            padding:
-                35px
-                20px;
-
-            background:
-                rgba(2, 6, 20, 0.75);
-
-            backdrop-filter: blur(12px);
-
-            z-index: 2000;
-
-            overflow-y: auto;
-
-            display: none;
-
-            opacity: 0;
-        }
-
-
-        .modal.open {
-            display: block;
-
-            animation:
-                modalFade 0.3s ease forwards;
-        }
-
-
-        @keyframes modalFade {
-
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-
-        }
-
-
-        .modal-content {
-            position: relative;
-
-            width: 100%;
-            max-width: 900px;
-
-            margin:
-                30px auto
-                60px;
-
-            padding: 50px;
-
-            border-radius: 30px;
-
-            background:
-                rgba(10, 18, 35, 0.92);
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.14);
-
-            box-shadow:
-                0 30px 100px
-                rgba(0, 0, 0, 0.55);
-
-            animation:
-                modalOpen 0.4s
-                cubic-bezier(
-                    0.175,
-                    0.885,
-                    0.32,
-                    1.1
-                );
-        }
-
-
-        @keyframes modalOpen {
-
-            from {
-                opacity: 0;
-                transform:
-                    translateY(40px)
-                    scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-
-        }
-
-
-        .close-btn {
-            position: absolute;
-
-            top: 20px;
-            right: 25px;
-
-            width: 45px;
-            height: 45px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            color: white;
-
-            font-size: 2rem;
-
-            cursor: pointer;
-
-            background:
-                rgba(255, 255, 255, 0.06);
-
-            transition:
-                0.25s ease;
-        }
-
-
-        .close-btn:hover {
-            background:
-                rgba(239, 68, 68, 0.2);
-
-            color: #ff7070;
-
-            transform: rotate(90deg);
-        }
-
-
-        .modal-body h2 {
-            font-family: var(--title-font);
-
-            color: var(--blue);
-
-            font-size:
-                clamp(
-                    2rem,
-                    5vw,
-                    3rem
-                );
-
-            margin-bottom: 20px;
-        }
-
-
-        .modal-divider {
-            border: none;
-
-            height: 1px;
-
-            background:
-                rgba(255, 255, 255, 0.1);
-
-            margin-bottom: 30px;
-        }
-
-
-        .modal-body h4 {
-            font-family: var(--title-font);
-
-            font-size: 1.05rem;
-
-            color: white;
-
-            margin-top: 25px;
-            margin-bottom: 7px;
-        }
-
-
-        .modal-body p {
-            color: var(--muted);
-
-            margin-bottom: 10px;
-        }
-
-
-        /* =====================================================
-           PDF / PROJECT LINKS
-        ===================================================== */
-
-        .pdf-list {
-            display: flex;
-            flex-direction: column;
-
-            gap: 12px;
-
-            margin-top: 25px;
-        }
-
-
-        .pdf-badge {
-            display: flex;
-
-            align-items: center;
-
-            gap: 18px;
-
-            padding: 15px 18px;
-
-            text-decoration: none;
-
-            border-radius: 16px;
-
-            background:
-                rgba(255, 255, 255, 0.04);
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.1);
-
-            transition:
-                0.25s ease;
-        }
-
-
-        .pdf-badge:hover {
-            transform: translateX(6px);
-
-            border-color:
-                var(--red);
-
-            background:
-                rgba(239, 68, 68, 0.1);
-        }
-
-
-        .pdf-icon {
-            width: 42px;
-            height: 50px;
-
-            flex-shrink: 0;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius:
-                5px 11px 5px 5px;
-
-            background: var(--red);
-
-            color: white;
-
-            font-size: 0.65rem;
-            font-weight: 800;
-        }
-
-
-        .pdf-text {
-            display: flex;
-            flex-direction: column;
-
-            min-width: 0;
-        }
-
-
-        .pdf-title {
-            color: white;
-
-            font-weight: 600;
-        }
-
-
-        .pdf-info {
-            color: var(--muted);
-
-            font-size: 0.8rem;
-        }
-
-
-        /* =====================================================
-           REVEAL ANIMATIE
-        ===================================================== */
-
-        .reveal {
-            opacity: 0;
-
-            transform:
-                translateY(35px);
-
-            transition:
-                opacity 0.7s ease,
-                transform 0.7s ease;
-        }
-
-
-        .reveal-active {
-            opacity: 1;
-
-            transform:
-                translateY(0);
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-            padding: 40px 20px;
-
-            text-align: center;
-
-            color: var(--muted);
-
-            border-top:
-                1px solid var(--border);
-
-            font-size: 0.85rem;
-        }
-
-
-        /* =====================================================
-           MOBIEL
-        ===================================================== */
-
-        @media (max-width: 768px) {
-
-            nav {
-                padding: 0 20px;
-            }
-
-
-            .nav-right {
-                display: none;
-            }
-
-
-            .section {
-                padding:
-                    110px
-                    18px
-                    80px;
-            }
-
-
-            .hero {
-                padding:
-                    60px
-                    25px;
-            }
-
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-
-            .project-img {
-                height: 210px;
-            }
-
-
-            .modal {
-                padding:
-                    15px;
-            }
-
-
-            .modal-content {
-                padding:
-                    50px
-                    22px
-                    30px;
-
-                margin-top: 15px;
-            }
-
-        }
-
-
-        @media (max-width: 450px) {
-
-            .nav-logo {
-                font-size: 1.1rem;
-            }
-
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-
-            .hero-text {
-                font-size: 0.95rem;
-            }
-
-
-            .project-info {
-                padding: 22px;
-            }
-
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
     <!-- =====================================================
-         NAVIGATIE
-    ===================================================== -->
+         START MENU
+         ===================================================== -->
 
-    <nav>
+    <div id="menu" class="screen">
 
-        <div class="nav-logo">
-            Ivan's Portfolio
+        <div class="menu-box">
+
+            <div class="game-logo">
+                ECHO<span>BOUND</span>
+            </div>
+
+            <div class="game-subtitle">
+                THE LOST SIGNAL
+            </div>
+
+            <p class="menu-description">
+                Overleef. Verken. Vind het verloren signaal.
+            </p>
+
+            <div class="menu-buttons">
+
+                <button id="startBtn" class="menu-button primary">
+                    START GAME
+                </button>
+
+                <button id="continueBtn" class="menu-button">
+                    CONTINUE
+                </button>
+
+                <button id="achievementsBtn" class="menu-button">
+                    ACHIEVEMENTS
+                </button>
+
+            </div>
+
+            <div class="menu-info">
+                WASD = bewegen &nbsp; • &nbsp;
+                Muis = richten &nbsp; • &nbsp;
+                Klik = schieten
+            </div>
+
         </div>
 
-        <div class="nav-right">
-            O&O&nbsp;&nbsp; | &nbsp;&nbsp;TECHNASIUM
-        </div>
-
-    </nav>
+    </div>
 
 
     <!-- =====================================================
-         HOME
-    ===================================================== -->
+         ACHIEVEMENTS
+         ===================================================== -->
 
-    <section id="home" class="section">
+    <div id="achievementsScreen" class="screen hidden">
 
-        <div class="container">
+        <div class="panel">
 
-            <div class="hero glass">
+            <button
+                id="achievementsBackBtn"
+                class="back-button"
+            >
+                ← TERUG
+            </button>
 
-                <div class="hero-label">
-                    MIJN PORTFOLIO
+            <h1>ACHIEVEMENTS</h1>
+
+            <p class="panel-subtitle">
+                Ontdek wat je hebt bereikt.
+            </p>
+
+            <div id="achievementsList" class="achievements-list">
+
+                <div class="achievement locked">
+                    <div class="achievement-icon">
+                        ?
+                    </div>
+
+                    <div>
+                        <h3>FIRST SIGNAL</h3>
+                        <p>Start je eerste missie.</p>
+                    </div>
                 </div>
 
-                <h1>
-                    Onderzoek &amp;<br>
-                    Ontwerpen
-                </h1>
+                <div class="achievement locked">
+                    <div class="achievement-icon">
+                        ?
+                    </div>
 
-                <p class="hero-text">
-                    Welkom op mijn portfolio. Hier vind je mijn
-                    O&amp;O-projecten, ontwerpen, onderzoeken en
-                    het proces achter mijn projecten.
+                    <div>
+                        <h3>EXPLORER</h3>
+                        <p>Verken de wereld.</p>
+                    </div>
+                </div>
+
+                <div class="achievement locked">
+                    <div class="achievement-icon">
+                        ?
+                    </div>
+
+                    <div>
+                        <h3>SURVIVOR</h3>
+                        <p>Overleef een gevaarlijke aanval.</p>
+                    </div>
+                </div>
+
+                <div class="achievement locked">
+                    <div class="achievement-icon">
+                        ?
+                    </div>
+
+                    <div>
+                        <h3>COLLECTOR</h3>
+                        <p>Verzamel grondstoffen.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         GAME
+         ===================================================== -->
+
+    <main id="gameScreen" class="hidden">
+
+        <canvas id="game"></canvas>
+
+
+        <!-- =================================================
+             HUD
+             ================================================= -->
+
+        <div id="hud">
+
+            <!-- Linksboven -->
+
+            <div id="playerHud" class="hud-panel">
+
+                <div class="hud-title">
+                    ECHOBOUND
+                </div>
+
+                <div class="stat">
+
+                    <span>
+                        HEALTH
+                    </span>
+
+                    <div class="bar">
+                        <div
+                            id="healthBar"
+                            class="bar-fill health"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <span>
+                        ENERGY
+                    </span>
+
+                    <div class="bar">
+                        <div
+                            id="energyBar"
+                            class="bar-fill energy"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Rechtsboven -->
+
+            <div id="missionHud" class="hud-panel">
+
+                <div class="hud-small-title">
+                    MISSION
+                </div>
+
+                <div id="objective">
+                    Zoek naar het verloren signaal.
+                </div>
+
+                <div id="zone">
+                    UNKNOWN ZONE
+                </div>
+
+            </div>
+
+
+            <!-- Rechtsonder -->
+
+            <div id="weaponHud" class="hud-panel">
+
+                <div id="weaponName">
+                    PULSE
+                </div>
+
+                <div id="ammo">
+                    12 / 12
+                </div>
+
+                <div class="weapon-help">
+                    1 / 2 / 3 = Wapen
+                    <br>
+                    R = Herladen
+                </div>
+
+            </div>
+
+
+            <!-- Linksonder -->
+
+            <div id="statsHud" class="hud-panel">
+
+                <div>
+                    KILLS:
+                    <strong id="kills">0</strong>
+                </div>
+
+                <div>
+                    CREDITS:
+                    <strong id="credits">0</strong>
+                </div>
+
+            </div>
+
+
+            <!-- Midden -->
+
+            <div id="crosshair">
+                <span></span>
+            </div>
+
+
+            <!-- Meldingen -->
+
+            <div id="messageBox"></div>
+
+        </div>
+
+
+        <!-- =================================================
+             PAUSE MENU
+             ================================================= -->
+
+        <div id="pause" class="overlay hidden">
+
+            <div class="pause-box">
+
+                <h1>PAUSED</h1>
+
+                <p>
+                    Het spel staat tijdelijk stil.
                 </p>
 
-                <a
-                    href="#werk"
-                    class="btn"
+                <button
+                    id="resumeBtn"
+                    class="menu-button primary"
                 >
-                    Bekijk mijn projecten
-                </a>
+                    RESUME
+                </button>
+
+                <button
+                    id="pauseMenuBtn"
+                    class="menu-button"
+                >
+                    MAIN MENU
+                </button>
 
             </div>
 
         </div>
 
-    </section>
 
+        <!-- =================================================
+             GAME OVER
+             ================================================= -->
 
-    <!-- =====================================================
-         PROJECTEN
-    ===================================================== -->
+        <div id="gameOver" class="overlay hidden">
 
-    <section id="werk" class="section">
+            <div class="gameover-box">
 
-        <div class="container">
-
-            <h2 class="section-title reveal">
-                Mijn <span>Projecten</span>
-            </h2>
-
-
-            <div class="grid">
-
-
-                <!-- =================================================
-                     PROJECT 1
-                ================================================= -->
-
-                <article class="project-card glass reveal">
-
-                    <img
-                        src="/img/tinkercad.png"
-                        alt="Kleine hond gemaakt in Tinkercad"
-                        class="project-img"
-                    >
-
-                    <div class="project-info">
-
-                        <div class="project-number">
-                            PROJECT 01
-                        </div>
-
-                        <h3>
-                            Tinkercad kleine hond
-                        </h3>
-
-                        <p>
-                            Een klein dier dat ik heb ontworpen
-                            in Tinkercad.
-                        </p>
-
-                        <button
-                            class="btn"
-                            onclick="openModal('modal0')"
-                        >
-                            Lees meer
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =================================================
-                     PROJECT 2
-                ================================================= -->
-
-                <article class="project-card glass reveal">
-
-                    <img
-                        src="/vakkanjers.jpg"
-                        alt="Vakkanjers project"
-                        class="project-img"
-                    >
-
-                    <div class="project-info">
-
-                        <div class="project-number">
-                            PROJECT 02
-                        </div>
-
-                        <h3>
-                            Vakkanjers
-                        </h3>
-
-                        <p>
-                            Een groene oplossing voor afval
-                            tijdens festivals.
-                        </p>
-
-                        <button
-                            class="btn"
-                            onclick="openModal('modal1')"
-                        >
-                            Lees meer
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =================================================
-                     PROJECT 3
-                ================================================= -->
-
-                <article class="project-card glass reveal">
-
-                    <img
-                        src="/img/aqualectra.jpg"
-                        alt="Aqualectra kantine"
-                        class="project-img"
-                    >
-
-                    <div class="project-info">
-
-                        <div class="project-number">
-                            PROJECT 03
-                        </div>
-
-                        <h3>
-                            Kantine inrichting
-                        </h3>
-
-                        <p>
-                            Een nieuwe kantine ontwerpen
-                            voor Aqualectra.
-                        </p>
-
-                        <button
-                            class="btn"
-                            onclick="openModal('modal2')"
-                        >
-                            Lees meer
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =================================================
-                     PROJECT 4
-                ================================================= -->
-
-                <article class="project-card glass reveal">
-
-                    <img
-                        src="/image.jpg"
-                        alt="Zuiderzeemuseum project"
-                        class="project-img"
-                    >
-
-                    <div class="project-info">
-
-                        <div class="project-number">
-                            PROJECT 04
-                        </div>
-
-                        <h3>
-                            Zuiderzeemuseum
-                        </h3>
-
-                        <p>
-                            Een oplossing bedenken voor
-                            blauwalg in het water.
-                        </p>
-
-                        <button
-                            class="btn"
-                            onclick="openModal('modal3')"
-                        >
-                            Lees meer
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- =================================================
-                     PROJECT 5
-                ================================================= -->
-
-                <article class="project-card glass reveal">
-
-                    <img
-                        src="/img/tinkercad.png"
-                        alt="Speelgoed project"
-                        class="project-img"
-                    >
-
-                    <div class="project-info">
-
-                        <div class="project-number">
-                            PROJECT 05
-                        </div>
-
-                        <h3>
-                            Project speelgoed
-                        </h3>
-
-                        <p>
-                            Een nieuw speelgoedproject.
-                            Dit project komt binnenkort.
-                        </p>
-
-                        <button
-                            class="btn"
-                            onclick="openModal('modal4')"
-                        >
-                            Lees meer
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         MODAL PROJECT 1
-    ===================================================== -->
-
-    <div
-        id="modal0"
-        class="modal"
-    >
-
-        <div class="modal-content">
-
-            <button
-                class="close-btn"
-                onclick="closeModal('modal0')"
-                aria-label="Sluiten"
-            >
-                &times;
-            </button>
-
-            <div class="modal-body">
-
-                <h2>
-                    Project 1: Tinkercad
-                </h2>
-
-                <hr class="modal-divider">
-
-
-                <h4>
-                    Opdrachtgever
-                </h4>
+                <div class="gameover-title">
+                    SIGNAL LOST
+                </div>
 
                 <p>
-                    School
+                    Je missie is beëindigd.
                 </p>
 
+                <div class="gameover-stats">
 
-                <h4>
-                    Probleemstelling
-                </h4>
+                    <div>
+                        KILLS
+                        <strong id="gameOverKills">
+                            0
+                        </strong>
+                    </div>
 
-                <p>
-                    Ik moest een dier maken in Tinkercad.
-                </p>
-
-
-                <h4>
-                    Proces
-                </h4>
-
-                <p>
-                    Ik heb verschillende vormen gecombineerd
-                    en uiteindelijk een kleine hond gemaakt.
-                </p>
-
-
-                <h4>
-                    Projectbestand
-                </h4>
-
-                <p>
-                    Hier vind je het ontwerp.
-                </p>
-
-
-                <div class="pdf-list">
-
-                    <a
-                        href="https://www.tinkercad.com/things/jAqi5KYZl9v-school-project"
-                        class="pdf-badge"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-
-                        <div class="pdf-icon">
-                            LINK
-                        </div>
-
-                        <div class="pdf-text">
-
-                            <span class="pdf-title">
-                                Tinkercad kleine hond
-                            </span>
-
-                            <span class="pdf-info">
-                                Open het ontwerp in Tinkercad
-                            </span>
-
-                        </div>
-
-                    </a>
+                    <div>
+                        CREDITS
+                        <strong id="gameOverCredits">
+                            0
+                        </strong>
+                    </div>
 
                 </div>
 
+                <button
+                    id="restartBtn"
+                    class="menu-button primary"
+                >
+                    TRY AGAIN
+                </button>
+
+                <button
+                    id="gameOverMenuBtn"
+                    class="menu-button"
+                >
+                    MAIN MENU
+                </button>
+
             </div>
 
         </div>
 
-    </div>
 
+        <!-- =================================================
+             BUILD MENU
+             ================================================= -->
 
-    <!-- =====================================================
-         MODAL PROJECT 2
-    ===================================================== -->
+        <div
+            id="buildMenu"
+            class="build-menu hidden"
+        >
 
-    <div
-        id="modal1"
-        class="modal"
-    >
+            <div class="build-header">
 
-        <div class="modal-content">
+                <strong>
+                    BUILD
+                </strong>
+
+                <button
+                    id="closeBuildBtn"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
 
             <button
-                class="close-btn"
-                onclick="closeModal('modal1')"
-                aria-label="Sluiten"
+                class="build-option"
+                data-build="wall"
             >
-                &times;
+                <span>WALL</span>
+                <small>Build a wall</small>
             </button>
 
-            <div class="modal-body">
-
-                <h2>
-                    Project 2: Vakkanjers
-                </h2>
-
-                <hr class="modal-divider">
-
-
-                <h4>
-                    Opdrachtgever
-                </h4>
-
-                <p>
-                    Vakkanjers
-                </p>
-
-
-                <h4>
-                    Probleemstelling
-                </h4>
-
-                <p>
-                    Hoe kunnen we ervoor zorgen dat er zo min
-                    mogelijk afval achterblijft op een festival?
-                </p>
-
-
-                <h4>
-                    Proces
-                </h4>
-
-                <p>
-                    We hadden Play and Spray gemaakt:
-                    een kraampje waar je de afwas doet
-                    op een leuke manier, namelijk door het
-                    schoon te spuiten met waterpistolen.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         MODAL PROJECT 3
-    ===================================================== -->
-
-    <div
-        id="modal2"
-        class="modal"
-    >
-
-        <div class="modal-content">
 
             <button
-                class="close-btn"
-                onclick="closeModal('modal2')"
-                aria-label="Sluiten"
+                class="build-option"
+                data-build="machine"
             >
-                &times;
+                <span>MACHINE</span>
+                <small>Place a machine</small>
             </button>
 
-            <div class="modal-body">
-
-                <h2>
-                    Project 3: Aqualectra
-                </h2>
-
-                <hr class="modal-divider">
-
-
-                <h4>
-                    Opdrachtgever
-                </h4>
-
-                <p>
-                    Aqualectra
-                </p>
-
-
-                <h4>
-                    Probleemstelling
-                </h4>
-
-                <p>
-                    We moesten een kantine ontwerpen
-                    en bouwen voor Aqualectra.
-                </p>
-
-
-                <h4>
-                    Proces
-                </h4>
-
-                <p>
-                    We hebben onderzoek gedaan naar de
-                    wensen en eisen en vervolgens een
-                    ontwerp voor de kantine gemaakt.
-                    Uiteindelijk hebben we het ontwerp
-                    gebouwd.
-                </p>
-
-
-                <h4>
-                    Projectbestanden
-                </h4>
-
-                <p>
-                    Hieronder vind je de documenten
-                    die bij het project horen.
-                </p>
-
-
-                <div class="pdf-list">
-
-
-                    <a
-                        href="pdf/aqaulectra/Onderzoek.pdf"
-                        class="pdf-badge"
-                        download
-                    >
-
-                        <div class="pdf-icon">
-                            PDF
-                        </div>
-
-                        <div class="pdf-text">
-
-                            <span class="pdf-title">
-                                Onderzoek.pdf
-                            </span>
-
-                            <span class="pdf-info">
-                                Het volledige vooronderzoek
-                            </span>
-
-                        </div>
-
-                    </a>
-
-
-                    <a
-                        href="pdf/aqaulectra/eisen (1).pdf"
-                        class="pdf-badge"
-                        download
-                    >
-
-                        <div class="pdf-icon">
-                            PDF
-                        </div>
-
-                        <div class="pdf-text">
-
-                            <span class="pdf-title">
-                                Eisen.pdf
-                            </span>
-
-                            <span class="pdf-info">
-                                Alle criteria en randvoorwaarden
-                            </span>
-
-                        </div>
-
-                    </a>
-
-
-                    <a
-                        href="pdf/aqaulectra/moodboard.pdf"
-                        class="pdf-badge"
-                        download
-                    >
-
-                        <div class="pdf-icon">
-                            PDF
-                        </div>
-
-                        <div class="pdf-text">
-
-                            <span class="pdf-title">
-                                Moodboard.pdf
-                            </span>
-
-                            <span class="pdf-info">
-                                Onze inspiratie
-                            </span>
-
-                        </div>
-
-                    </a>
-
-
-                    <a
-                        href="pdf/aqaulectra/O&O Project Hub.pdf"
-                        class="pdf-badge"
-                        download
-                    >
-
-                        <div class="pdf-icon">
-                            PDF
-                        </div>
-
-                        <div class="pdf-text">
-
-                            <span class="pdf-title">
-                                Project Hub.pdf
-                            </span>
-
-                            <span class="pdf-info">
-                                Het uiteindelijke kantineplan
-                            </span>
-
-                        </div>
-
-                    </a>
-
-
-                    <a
-                        href="pdf/aqaulectra/logboek O&O.pdf"
-                        class="pdf-badge"
-                        download
-                    >
-
-                        <div class="pdf-icon">
-                            PDF
-                        </div>
-
-                        <div class="pdf-text">
-
-                            <span class="pdf-title">
-                                Logboek.pdf
-                            </span>
-
-                            <span class="pdf-info">
-                                Het overzicht van de verdeling
-                            </span>
-
-                        </div>
-
-                    </a>
-
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         MODAL PROJECT 4
-    ===================================================== -->
-
-    <div
-        id="modal3"
-        class="modal"
-    >
-
-        <div class="modal-content">
 
             <button
-                class="close-btn"
-                onclick="closeModal('modal3')"
-                aria-label="Sluiten"
+                class="build-option"
+                data-build="generator"
             >
-                &times;
+                <span>GENERATOR</span>
+                <small>Power your base</small>
             </button>
-
-            <div class="modal-body">
-
-                <h2>
-                    Project 4: Zuiderzeemuseum
-                </h2>
-
-                <hr class="modal-divider">
-
-
-                <h4>
-                    Opdrachtgever
-                </h4>
-
-                <p>
-                    Zuiderzeemuseum
-                </p>
-
-
-                <h4>
-                    Probleemstelling
-                </h4>
-
-                <p>
-                    We kozen voor opdracht A:
-                    de blauwalg verwijderen.
-                </p>
-
-
-                <h4>
-                    Proces
-                </h4>
-
-                <p>
-                    We hebben een machine gemaakt die
-                    waterstofperoxide kan verspreiden
-                    om het water te behandelen.
-                </p>
-
-            </div>
 
         </div>
 
-    </div>
 
+        <!-- =================================================
+             CONTROLS
+             ================================================= -->
 
-    <!-- =====================================================
-         MODAL PROJECT 5
-    ===================================================== -->
+        <div id="controlsHint">
 
-    <div
-        id="modal4"
-        class="modal"
-    >
+            <span>
+                WASD
+            </span>
+            Move
 
-        <div class="modal-content">
+            <span>
+                SHIFT
+            </span>
+            Sprint
 
-            <button
-                class="close-btn"
-                onclick="closeModal('modal4')"
-                aria-label="Sluiten"
-            >
-                &times;
-            </button>
+            <span>
+                SPACE
+            </span>
+            Dash
 
-            <div class="modal-body">
-
-                <h2>
-                    Project 5: Speelgoed
-                </h2>
-
-                <hr class="modal-divider">
-
-
-                <h4>
-                    Opdrachtgever
-                </h4>
-
-                <p>
-                    School
-                </p>
-
-
-                <h4>
-                    Probleemstelling
-                </h4>
-
-                <p>
-                    Ik moest speelgoed maken.
-                </p>
-
-
-                <h4>
-                    Proces
-                </h4>
-
-                <p>
-                    Coming soon.
-                </p>
-
-
-                <h4>
-                    Projectbestand
-                </h4>
-
-                <p>
-                    Coming soon.
-                </p>
-
-            </div>
+            <span>
+                E
+            </span>
+            Build
 
         </div>
 
-    </div>
+    </main>
 
 
     <!-- =====================================================
-         FOOTER
-    ===================================================== -->
+         FIREBASE
+         ===================================================== -->
 
-    <footer>
+    <!--
+        Firebase kan later in app.js worden gebruikt.
 
-        Ivan's Portfolio · O&amp;O · Technasium
-
-    </footer>
+        De game werkt ook zonder Firebase.
+        Zet je Firebase-configuratie alleen in app.js
+        wanneer je save-systeem klaar is.
+    -->
 
 
     <!-- =====================================================
          JAVASCRIPT
-    ===================================================== -->
+         ===================================================== -->
 
-    <script>
-
-        /* =================================================
-           MODALS OPENEN
-        ================================================= */
-
-        function openModal(id) {
-
-            const modal =
-                document.getElementById(id);
-
-            if (!modal) {
-                console.error(
-                    "Modal niet gevonden:",
-                    id
-                );
-
-                return;
-            }
-
-            modal.style.display = "block";
-
-            document.body.style.overflow = "hidden";
-
-            requestAnimationFrame(() => {
-                modal.classList.add("open");
-            });
-        }
-
-
-        /* =================================================
-           MODALS SLUITEN
-        ================================================= */
-
-        function closeModal(id) {
-
-            const modal =
-                document.getElementById(id);
-
-            if (!modal) {
-                return;
-            }
-
-            modal.classList.remove("open");
-
-            setTimeout(() => {
-
-                modal.style.display = "none";
-
-                const andereModals =
-                    document.querySelectorAll(
-                        ".modal.open"
-                    );
-
-                if (andereModals.length === 0) {
-                    document.body.style.overflow = "";
-                }
-
-            }, 300);
-        }
-
-
-        /* =================================================
-           KLIK OP ACHTERGROND = SLUITEN
-        ================================================= */
-
-        document.addEventListener(
-            "click",
-            function(event) {
-
-                if (
-                    event.target.classList.contains(
-                        "modal"
-                    )
-                ) {
-
-                    closeModal(
-                        event.target.id
-                    );
-
-                }
-
-            }
-        );
-
-
-        /* =================================================
-           ESC = MODAL SLUITEN
-        ================================================= */
-
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (event.key === "Escape") {
-
-                    document
-                        .querySelectorAll(
-                            ".modal.open"
-                        )
-                        .forEach(modal => {
-
-                            closeModal(
-                                modal.id
-                            );
-
-                        });
-
-                }
-
-            }
-        );
-
-
-        /* =================================================
-           SCROLL ANIMATIES
-        ================================================= */
-
-        const observer =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (
-                            entry.isIntersecting
-                        ) {
-
-                            entry.target.classList.add(
-                                "reveal-active"
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: 0.12
-                }
-            );
-
-
-        document
-            .querySelectorAll(".reveal")
-            .forEach(element => {
-
-                observer.observe(element);
-
-            });
-
-
-        /* =================================================
-           FOUTOPVANG VOOR AFBEELDINGEN
-        ================================================= */
-
-        document
-            .querySelectorAll(".project-img")
-            .forEach(image => {
-
-                image.addEventListener(
-                    "error",
-                    function() {
-
-                        this.style.display =
-                            "none";
-
-                    }
-                );
-
-            });
-
-    </script>
+    <script src="app.js"></script>
 
 </body>
 </html>
