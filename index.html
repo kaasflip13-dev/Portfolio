@@ -6,221 +6,142 @@
 
     <title>Ivan's Portfolio | O&O</title>
 
-    <meta
-        name="description"
-        content="Ivan's persoonlijke O&O en Technasium portfolio."
-    >
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- ACHTERGROND -->
-    <div class="background-effects">
-        <div class="glow glow-1"></div>
-        <div class="glow glow-2"></div>
-        <div class="glow glow-3"></div>
-        <div class="grid-background"></div>
-    </div>
+    <!-- =========================
+         NAVIGATIE
+    ========================== -->
 
-    <!-- NAVIGATIE -->
-    <header class="navbar" id="navbar">
+    <header class="navbar">
 
-        <a href="#home" class="logo">
-            <span class="logo-box">I</span>
-            <span class="logo-text">
-                Ivan<span>'s</span> Portfolio
-            </span>
-        </a>
+        <div class="nav-inner">
 
-        <nav class="nav-links">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#projecten" class="nav-link">Projecten</a>
-            <a href="#over" class="nav-link">Over</a>
-        </nav>
+            <a href="#home" class="logo">
+                <span class="logo-dot"></span>
+                Ivan's Portfolio
+            </a>
 
-        <a href="#projecten" class="nav-button">
-            <span>O&O</span>
-            <span class="nav-arrow">↗</span>
-        </a>
+            <button class="menu-button" id="menuButton" aria-label="Menu openen">
+                ☰
+            </button>
 
-        <button
-            class="mobile-menu-button"
-            id="mobileMenuButton"
-            aria-label="Menu openen"
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+            <nav id="navMenu">
+                <a href="#home">Home</a>
+                <a href="#projecten">Projecten</a>
+                <a href="#leren">Wat ik leer</a>
+                <a href="#over-mij">Over mij</a>
+            </nav>
+
+        </div>
 
     </header>
-
-    <!-- MOBIEL MENU -->
-    <div class="mobile-menu" id="mobileMenu">
-
-        <a href="#home">Home</a>
-        <a href="#projecten">Projecten</a>
-        <a href="#over">Over</a>
-
-        <a href="#projecten" class="mobile-menu-project">
-            Bekijk projecten →
-        </a>
-
-    </div>
 
 
     <main>
 
-        <!-- HERO -->
+        <!-- =========================
+             HERO
+        ========================== -->
+
         <section class="hero section" id="home">
 
             <div class="hero-content">
 
-                <div class="hero-badge">
-                    <span class="status-dot"></span>
-                    TECHNASIUM
-                    <span class="badge-line"></span>
-                    O&O PORTFOLIO
+                <div class="small-label">
+                    🎓 Mijn O&O portfolio
                 </div>
 
                 <h1>
-                    Van idee
-                    <span>naar</span>
-                    <strong>ontwerp.</strong>
+                    Hoi! Ik ben <span>Ivan</span> 👋
                 </h1>
 
-                <p class="hero-description">
-                    Welkom in mijn portfolio. Hier laat ik zien aan welke
-                    Onderzoek & Ontwerpen-projecten ik heb gewerkt, welke
-                    ideeën ik heb onderzocht en welke oplossingen ik heb
-                    ontworpen.
+                <p class="hero-text">
+                    Welkom op mijn portfolio! Hier laat ik zien aan welke
+                    O&O-projecten ik heb gewerkt, wat ik heb gemaakt en
+                    wat ik daarvan heb geleerd.
                 </p>
 
                 <div class="hero-buttons">
 
-                    <a href="#projecten" class="primary-button">
-                        <span>Bekijk mijn projecten</span>
-                        <span class="button-icon">↓</span>
+                    <a href="#projecten" class="button primary">
+                        Bekijk mijn projecten
                     </a>
 
-                    <a href="#over" class="secondary-button">
-                        Meer over dit portfolio
+                    <a href="#over-mij" class="button secondary">
+                        Meer over mij
                     </a>
 
                 </div>
 
-                <div class="hero-info">
+            </div>
 
-                    <div class="info-item">
-                        <strong>04</strong>
-                        <span>Projecten</span>
+
+            <div class="hero-card">
+
+                <div class="hero-card-top">
+                    <span class="school-dot"></span>
+                    O&O
+                </div>
+
+                <div class="hero-card-icon">
+                    🔧
+                </div>
+
+                <h2>
+                    Onderzoeken & Ontwerpen
+                </h2>
+
+                <p>
+                    Ideeën bedenken, dingen maken, testen
+                    en steeds proberen het beter te maken.
+                </p>
+
+                <div class="hero-mini-info">
+
+                    <div>
+                        <strong>4</strong>
+                        <span>projecten</span>
                     </div>
 
-                    <div class="info-separator"></div>
-
-                    <div class="info-item">
+                    <div>
                         <strong>O&O</strong>
-                        <span>Onderzoek & Ontwerpen</span>
-                    </div>
-
-                    <div class="info-separator"></div>
-
-                    <div class="info-item">
-                        <strong>∞</strong>
-                        <span>Ideeën</span>
+                        <span>vak</span>
                     </div>
 
                 </div>
 
             </div>
-
-
-            <!-- RECHTER HERO VISUAL -->
-            <div class="hero-visual">
-
-                <div class="visual-ring ring-one"></div>
-                <div class="visual-ring ring-two"></div>
-                <div class="visual-ring ring-three"></div>
-
-                <div class="visual-center">
-
-                    <div class="center-small">
-                        O&O
-                    </div>
-
-                    <div class="center-big">
-                        IV
-                    </div>
-
-                    <div class="center-line"></div>
-
-                    <div class="center-label">
-                        CREATIVE<br>
-                        THINKING
-                    </div>
-
-                </div>
-
-
-                <div class="floating-card card-top">
-                    <span class="floating-icon">⌁</span>
-                    <div>
-                        <strong>Onderzoeken</strong>
-                        <small>Probleem → inzicht</small>
-                    </div>
-                </div>
-
-                <div class="floating-card card-bottom">
-                    <span class="floating-icon">✦</span>
-                    <div>
-                        <strong>Ontwerpen</strong>
-                        <small>Inzicht → oplossing</small>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <a href="#projecten" class="scroll-indicator">
-                <span class="scroll-mouse">
-                    <span></span>
-                </span>
-                <span>Scroll om te ontdekken</span>
-            </a>
 
         </section>
 
 
-        <!-- PROJECTEN -->
-        <section class="projects-section section" id="projecten">
+        <!-- =========================
+             PROJECTEN
+        ========================== -->
+
+        <section class="section projects-section" id="projecten">
 
             <div class="section-heading">
 
                 <div>
-                    <div class="section-eyebrow">
-                        <span></span>
-                        MIJN WERK
+                    <div class="small-label">
+                        🛠️ Mijn werk
                     </div>
 
                     <h2>
-                        Projecten die
-                        <span>ik heb gemaakt.</span>
+                        Mijn projecten
                     </h2>
                 </div>
 
                 <p>
-                    Van 3D-modellen tot oplossingen voor echte problemen.
-                    Bekijk hieronder mijn projecten.
+                    Een overzicht van projecten waar ik aan heb gewerkt.
                 </p>
 
             </div>
@@ -229,65 +150,44 @@
             <div class="projects-grid">
 
 
-                <!-- PROJECT 01 -->
-                <article
-                    class="project-card project-large"
-                    data-project="0"
-                >
+                <!-- PROJECT 1 -->
+
+                <article class="project-card">
 
                     <div class="project-image">
 
                         <img
                             src="img/tinkercad.png"
-                            alt="Tinkercad kleine hond"
-                            loading="lazy"
+                            alt="Tinkercad project"
                         >
 
-                        <div class="image-overlay"></div>
-
-                        <div class="project-number">
+                        <span class="project-number">
                             01
-                        </div>
-
-                        <div class="project-category">
-                            3D DESIGN
-                        </div>
-
-                        <button
-                            class="project-open"
-                            type="button"
-                            data-open-project="0"
-                            aria-label="Project Tinkercad openen"
-                        >
-                            ↗
-                        </button>
+                        </span>
 
                     </div>
 
                     <div class="project-content">
 
-                        <div class="project-meta">
-                            <span>01</span>
-                            <span>•</span>
+                        <div class="project-tags">
+                            <span>3D ontwerpen</span>
                             <span>Tinkercad</span>
                         </div>
 
                         <h3>
-                            Project Tinkercad kleine hond
+                            Kleine hond
                         </h3>
 
                         <p>
-                            Een 3D-ontwerp waarbij ik een kleine hond
-                            heb ontworpen in Tinkercad.
+                            Voor dit project heb ik een kleine hond
+                            ontworpen in Tinkercad.
                         </p>
 
                         <button
-                            class="text-button"
-                            type="button"
-                            data-open-project="0"
+                            class="project-button"
+                            data-open-project="modal0"
                         >
-                            Bekijk project
-                            <span>→</span>
+                            Bekijk project →
                         </button>
 
                     </div>
@@ -295,65 +195,44 @@
                 </article>
 
 
-                <!-- PROJECT 02 -->
-                <article
-                    class="project-card"
-                    data-project="1"
-                >
+                <!-- PROJECT 2 -->
+
+                <article class="project-card">
 
                     <div class="project-image">
 
                         <img
                             src="vakkanjers.jpg"
                             alt="Vakkanjers project"
-                            loading="lazy"
                         >
 
-                        <div class="image-overlay"></div>
-
-                        <div class="project-number">
+                        <span class="project-number">
                             02
-                        </div>
-
-                        <div class="project-category">
-                            VAKKANJERS
-                        </div>
-
-                        <button
-                            class="project-open"
-                            type="button"
-                            data-open-project="1"
-                            aria-label="Project Vakkanjers openen"
-                        >
-                            ↗
-                        </button>
+                        </span>
 
                     </div>
 
                     <div class="project-content">
 
-                        <div class="project-meta">
-                            <span>02</span>
-                            <span>•</span>
-                            <span>Innovatie</span>
+                        <div class="project-tags">
+                            <span>Vakkanjers</span>
+                            <span>Ontwerpen</span>
                         </div>
 
                         <h3>
-                            Project Vakkanjers
+                            Play and Spray
                         </h3>
 
                         <p>
-                            Een oplossing voor afval tijdens een festival:
-                            Play and Spray.
+                            Een idee voor een oplossing voor afval
+                            tijdens een groen festival.
                         </p>
 
                         <button
-                            class="text-button"
-                            type="button"
-                            data-open-project="1"
+                            class="project-button"
+                            data-open-project="modal1"
                         >
-                            Bekijk project
-                            <span>→</span>
+                            Bekijk project →
                         </button>
 
                     </div>
@@ -361,47 +240,28 @@
                 </article>
 
 
-                <!-- PROJECT 03 -->
-                <article
-                    class="project-card"
-                    data-project="2"
-                >
+                <!-- PROJECT 3 -->
+
+                <article class="project-card">
 
                     <div class="project-image">
 
                         <img
                             src="img/aqualectra.jpg"
-                            alt="Aqualectra kantine inrichting"
-                            loading="lazy"
+                            alt="Kantine inrichting"
                         >
 
-                        <div class="image-overlay"></div>
-
-                        <div class="project-number">
+                        <span class="project-number">
                             03
-                        </div>
-
-                        <div class="project-category">
-                            AQUALectra
-                        </div>
-
-                        <button
-                            class="project-open"
-                            type="button"
-                            data-open-project="2"
-                            aria-label="Kantine project openen"
-                        >
-                            ↗
-                        </button>
+                        </span>
 
                     </div>
 
                     <div class="project-content">
 
-                        <div class="project-meta">
-                            <span>03</span>
-                            <span>•</span>
-                            <span>Interieur</span>
+                        <div class="project-tags">
+                            <span>Onderzoeken</span>
+                            <span>Ontwerpen</span>
                         </div>
 
                         <h3>
@@ -409,17 +269,15 @@
                         </h3>
 
                         <p>
-                            Onderzoek en ontwerp voor een nieuwe
-                            inrichting van een kantine.
+                            Een project waarbij we hebben gekeken
+                            naar de inrichting van een kantine.
                         </p>
 
                         <button
-                            class="text-button"
-                            type="button"
-                            data-open-project="2"
+                            class="project-button"
+                            data-open-project="modal2"
                         >
-                            Bekijk project
-                            <span>→</span>
+                            Bekijk project →
                         </button>
 
                     </div>
@@ -427,47 +285,28 @@
                 </article>
 
 
-                <!-- PROJECT 04 -->
-                <article
-                    class="project-card project-large"
-                    data-project="3"
-                >
+                <!-- PROJECT 4 -->
+
+                <article class="project-card">
 
                     <div class="project-image">
 
                         <img
                             src="image.jpg"
                             alt="Zuiderzeemuseum project"
-                            loading="lazy"
                         >
 
-                        <div class="image-overlay"></div>
-
-                        <div class="project-number">
+                        <span class="project-number">
                             04
-                        </div>
-
-                        <div class="project-category">
-                            ZUIDERZEEMUSEUM
-                        </div>
-
-                        <button
-                            class="project-open"
-                            type="button"
-                            data-open-project="3"
-                            aria-label="Zuiderzeemuseum project openen"
-                        >
-                            ↗
-                        </button>
+                        </span>
 
                     </div>
 
                     <div class="project-content">
 
-                        <div class="project-meta">
-                            <span>04</span>
-                            <span>•</span>
+                        <div class="project-tags">
                             <span>Techniek</span>
+                            <span>Onderzoek</span>
                         </div>
 
                         <h3>
@@ -475,17 +314,15 @@
                         </h3>
 
                         <p>
-                            Een ontwerp voor het verwijderen van
-                            blauwgroene algen uit het water.
+                            Een project over het verwijderen van
+                            blauwalg uit water.
                         </p>
 
                         <button
-                            class="text-button"
-                            type="button"
-                            data-open-project="3"
+                            class="project-button"
+                            data-open-project="modal3"
                         >
-                            Bekijk project
-                            <span>→</span>
+                            Bekijk project →
                         </button>
 
                     </div>
@@ -493,30 +330,32 @@
                 </article>
 
 
-                <!-- PROJECT 05 -->
-                <article
-                    class="project-card coming-soon-card"
-                    data-project="4"
-                >
+                <!-- BINNENKORT -->
 
-                    <div class="coming-soon-content">
+                <article class="project-card coming-card">
 
-                        <div class="coming-icon">
-                            +
-                        </div>
+                    <div class="coming-icon">
+                        💡
+                    </div>
 
-                        <div class="section-eyebrow">
-                            <span></span>
-                            BINNENKORT
+                    <div class="project-content">
+
+                        <div class="project-tags">
+                            <span>Nieuw project</span>
                         </div>
 
                         <h3>
-                            Nieuw project
+                            Binnenkort...
                         </h3>
 
                         <p>
-                            Hier komt binnenkort een nieuw O&O-project.
+                            Hier komt mijn volgende O&O-project
+                            te staan.
                         </p>
+
+                        <span class="coming-text">
+                            🚧 Wordt nog gemaakt
+                        </span>
 
                     </div>
 
@@ -527,79 +366,133 @@
         </section>
 
 
-        <!-- OVER -->
-        <section class="about-section section" id="over">
+        <!-- =========================
+             WAT IK LEER
+        ========================== -->
 
-            <div class="about-grid">
+        <section class="section learning-section" id="leren">
 
-                <div class="about-title">
+            <div class="section-heading centered">
 
-                    <div class="section-eyebrow">
-                        <span></span>
-                        OVER DIT PORTFOLIO
+                <div class="small-label">
+                    🧠 O&O
+                </div>
+
+                <h2>
+                    Wat ik leer
+                </h2>
+
+                <p>
+                    Bij O&O leer ik niet alleen iets maken,
+                    maar ook hoe ik tot een goed idee kom.
+                </p>
+
+            </div>
+
+
+            <div class="learning-grid">
+
+                <div class="learning-card">
+                    <div class="learning-icon blue">
+                        🔎
                     </div>
 
-                    <h2>
-                        Denken.
-                        <br>
-                        Maken.
-                        <br>
-                        <span>Verbeteren.</span>
-                    </h2>
+                    <h3>
+                        Onderzoeken
+                    </h3>
 
+                    <p>
+                        Informatie zoeken, vragen bedenken
+                        en uitzoeken wat een probleem precies is.
+                    </p>
                 </div>
 
 
+                <div class="learning-card">
+                    <div class="learning-icon orange">
+                        💡
+                    </div>
+
+                    <h3>
+                        Ontwerpen
+                    </h3>
+
+                    <p>
+                        Ideeën bedenken en daar uiteindelijk
+                        een ontwerp van maken.
+                    </p>
+                </div>
+
+
+                <div class="learning-card">
+                    <div class="learning-icon green">
+                        🤝
+                    </div>
+
+                    <h3>
+                        Samenwerken
+                    </h3>
+
+                    <p>
+                        Overleggen met anderen, taken verdelen
+                        en samen aan een project werken.
+                    </p>
+                </div>
+
+
+                <div class="learning-card">
+                    <div class="learning-icon purple">
+                        🎤
+                    </div>
+
+                    <h3>
+                        Presenteren
+                    </h3>
+
+                    <p>
+                        Mijn ideeën uitleggen en laten zien
+                        wat ik tijdens een project heb gedaan.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             OVER MIJ
+        ========================== -->
+
+        <section class="section about-section" id="over-mij">
+
+            <div class="about-box">
+
+                <div class="about-emoji">
+                    👨‍💻
+                </div>
+
                 <div class="about-text">
 
-                    <p class="about-intro">
-                        Dit portfolio laat mijn ontwikkeling binnen
-                        Onderzoek & Ontwerpen zien.
+                    <div class="small-label">
+                        👋 Over mijn portfolio
+                    </div>
+
+                    <h2>
+                        Waarom heb ik deze website gemaakt?
+                    </h2>
+
+                    <p>
+                        Op deze website verzamel ik mijn O&O-projecten.
+                        Zo kan ik laten zien wat ik heb gemaakt en hoe
+                        ik tijdens verschillende projecten heb gewerkt.
                     </p>
 
                     <p>
-                        Bij O&O gaat het niet alleen om het eindresultaat.
-                        Ook het onderzoeken van een probleem, het bedenken
-                        van ideeën en het verbeteren van een ontwerp zijn
-                        belangrijke onderdelen van een project.
+                        Ik vind het leuk om zelf dingen te bedenken,
+                        uit te proberen en daarna te kijken hoe ik
+                        mijn idee beter kan maken.
                     </p>
-
-                    <div class="process-list">
-
-                        <div class="process-item">
-                            <span>01</span>
-                            <div>
-                                <strong>Onderzoeken</strong>
-                                <p>
-                                    Het probleem en de mogelijkheden
-                                    ontdekken.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <span>02</span>
-                            <div>
-                                <strong>Ontwerpen</strong>
-                                <p>
-                                    Ideeën omzetten naar een mogelijke
-                                    oplossing.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="process-item">
-                            <span>03</span>
-                            <div>
-                                <strong>Verbeteren</strong>
-                                <p>
-                                    Testen, aanpassen en het ontwerp
-                                    steeds beter maken.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
 
                 </div>
 
@@ -608,36 +501,31 @@
         </section>
 
 
-        <!-- CTA -->
-        <section class="cta-section section">
+        <!-- =========================
+             CTA
+        ========================== -->
 
-            <div class="cta-box">
+        <section class="section final-section">
 
-                <div class="cta-glow"></div>
+            <div class="final-card">
 
-                <div class="cta-content">
-
-                    <div class="section-eyebrow">
-                        <span></span>
-                        BEDANKT VOOR HET KIJKEN
-                    </div>
+                <div>
+                    <span class="final-icon">
+                        ⭐
+                    </span>
 
                     <h2>
-                        Klaar om mijn
-                        <span>projecten</span>
-                        te bekijken?
+                        Bedankt voor het bekijken!
                     </h2>
 
-                    <a href="#projecten" class="primary-button">
-                        Bekijk projecten
-                        <span class="button-icon">→</span>
-                    </a>
-
+                    <p>
+                        Kijk gerust rond in mijn projecten.
+                    </p>
                 </div>
 
-                <div class="cta-symbol">
-                    IV
-                </div>
+                <a href="#home" class="button primary">
+                    Naar boven ↑
+                </a>
 
             </div>
 
@@ -646,101 +534,181 @@
     </main>
 
 
-    <!-- FOOTER -->
-    <footer class="footer">
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
-        <div class="footer-top">
+    <footer>
 
-            <a href="#home" class="logo">
-                <span class="logo-box">I</span>
-                <span class="logo-text">
-                    Ivan<span>'s</span> Portfolio
-                </span>
-            </a>
+        <div class="footer-inner">
 
-            <p>
-                Onderzoek & Ontwerpen • Technasium
-            </p>
+            <div>
+                <strong>Ivan's Portfolio</strong>
+                <span>O&O / Technasium</span>
+            </div>
 
-        </div>
-
-        <div class="footer-bottom">
-
-            <span>
-                © <span id="year"></span> Ivan's Portfolio
-            </span>
-
-            <a href="#home">
-                Terug naar boven ↑
-            </a>
+            <div class="footer-right">
+                © <span id="year"></span> Ivan
+            </div>
 
         </div>
 
     </footer>
 
 
-    <!-- MODAL PROJECT 1 -->
-    <div class="modal" id="modal0" aria-hidden="true">
 
-        <div class="modal-backdrop" data-close-modal></div>
+    <!-- =========================
+         MODAL 1
+    ========================== -->
 
-        <div class="modal-window">
+    <div class="modal" id="modal0">
 
-            <button
-                class="modal-close"
-                type="button"
-                data-close-modal
-                aria-label="Venster sluiten"
-            >
+        <div class="modal-box">
+
+            <button class="modal-close" aria-label="Sluiten">
                 ×
             </button>
 
-            <div class="modal-header">
+            <span class="modal-number">
+                PROJECT 01
+            </span>
 
-                <div class="modal-number">
-                    01
+            <h2>
+                Tinkercad — Kleine hond
+            </h2>
+
+            <p>
+                Voor dit project heb ik een kleine hond ontworpen
+                in Tinkercad. Hierbij kon ik oefenen met het maken
+                en combineren van 3D-vormen.
+            </p>
+
+            <div class="modal-info">
+
+                <div>
+                    <strong>Programma</strong>
+                    <span>Tinkercad</span>
                 </div>
 
                 <div>
-                    <div class="modal-label">
-                        3D DESIGN
-                    </div>
-
-                    <h2>
-                        Project Tinkercad kleine hond
-                    </h2>
+                    <strong>Soort</strong>
+                    <span>3D ontwerp</span>
                 </div>
 
             </div>
 
-            <div class="modal-body">
+            <a
+                href="https://www.tinkercad.com/things/jAqi5KYZl9v-school-project"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button primary"
+            >
+                Open Tinkercad →
+            </a>
 
-                <p>
-                    Voor dit project heb ik gewerkt met Tinkercad.
-                    Het doel was om een kleine hond als 3D-model
-                    te ontwerpen.
-                </p>
+        </div>
 
-                <p>
-                    Tijdens het ontwerpen heb ik verschillende vormen
-                    gecombineerd en gekeken hoe ik het model zo goed
-                    mogelijk kon opbouwen.
-                </p>
+    </div>
 
-                <div class="modal-tags">
-                    <span>3D ontwerpen</span>
-                    <span>Tinkercad</span>
-                    <span>Ontwerpen</span>
+
+
+    <!-- =========================
+         MODAL 2
+    ========================== -->
+
+    <div class="modal" id="modal1">
+
+        <div class="modal-box">
+
+            <button class="modal-close" aria-label="Sluiten">
+                ×
+            </button>
+
+            <span class="modal-number">
+                PROJECT 02
+            </span>
+
+            <h2>
+                Vakkanjers — Play and Spray
+            </h2>
+
+            <p>
+                Voor Vakkanjers hebben we nagedacht over een oplossing
+                voor afval tijdens een groen festival. Ons idee kreeg
+                de naam Play and Spray.
+            </p>
+
+            <div class="modal-info">
+
+                <div>
+                    <strong>Project</strong>
+                    <span>Vakkanjers</span>
                 </div>
 
-                <a
-                    href="https://www.tinkercad.com/things/jAqi5KYZl9v-school-project"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="modal-link"
-                >
-                    Open project in Tinkercad
-                    <span>↗</span>
+                <div>
+                    <strong>Focus</strong>
+                    <span>Oplossing bedenken</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         MODAL 3
+    ========================== -->
+
+    <div class="modal" id="modal2">
+
+        <div class="modal-box">
+
+            <button class="modal-close" aria-label="Sluiten">
+                ×
+            </button>
+
+            <span class="modal-number">
+                PROJECT 03
+            </span>
+
+            <h2>
+                Kantine inrichting
+            </h2>
+
+            <p>
+                Bij dit project hebben we gekeken naar een goede
+                inrichting van een kantine. Hiervoor hebben we
+                onderzoek gedaan en verschillende onderdelen
+                van het ontwerp uitgewerkt.
+            </p>
+
+            <h3>
+                Projectbestanden
+            </h3>
+
+            <div class="file-links">
+
+                <a href="pdf/aqaulectra/Onderzoek.pdf" target="_blank">
+                    📄 Onderzoek
+                </a>
+
+                <a href="pdf/aqaulectra/eisen (1).pdf" target="_blank">
+                    📋 Eisen
+                </a>
+
+                <a href="pdf/aqaulectra/moodboard.pdf" target="_blank">
+                    🎨 Moodboard
+                </a>
+
+                <a href="pdf/aqaulectra/O&O Project Hub.pdf" target="_blank">
+                    📁 Project Hub
+                </a>
+
+                <a href="pdf/aqaulectra/logboek O&O.pdf" target="_blank">
+                    📓 Logboek
                 </a>
 
             </div>
@@ -750,245 +718,50 @@
     </div>
 
 
-    <!-- MODAL PROJECT 2 -->
-    <div class="modal" id="modal1" aria-hidden="true">
 
-        <div class="modal-backdrop" data-close-modal></div>
+    <!-- =========================
+         MODAL 4
+    ========================== -->
 
-        <div class="modal-window">
+    <div class="modal" id="modal3">
 
-            <button
-                class="modal-close"
-                type="button"
-                data-close-modal
-                aria-label="Venster sluiten"
-            >
+        <div class="modal-box">
+
+            <button class="modal-close" aria-label="Sluiten">
                 ×
             </button>
 
-            <div class="modal-header">
+            <span class="modal-number">
+                PROJECT 04
+            </span>
 
-                <div class="modal-number">
-                    02
-                </div>
+            <h2>
+                Zuiderzeemuseum
+            </h2>
+
+            <p>
+                Dit project ging over blauwalg in water. We hebben
+                gekeken naar een technische oplossing om blauwalg
+                uit het water te verwijderen.
+            </p>
+
+            <div class="idea-box">
+                💡
 
                 <div>
-                    <div class="modal-label">
-                        VAKKANJERS
-                    </div>
+                    <strong>Ons idee</strong>
 
-                    <h2>
-                        Project Vakkanjers
-                    </h2>
+                    <p>
+                        Een machine die water behandelt met
+                        waterstofperoxide om het probleem aan
+                        te pakken.
+                    </p>
                 </div>
-
-            </div>
-
-            <div class="modal-body">
-
-                <p>
-                    Voor dit project hebben we nagedacht over een
-                    probleem rondom afval tijdens festivals.
-                </p>
-
-                <p>
-                    Onze oplossing heet <strong>Play and Spray</strong>.
-                    Het ontwerp is gericht op een groenere en leukere
-                    festivalomgeving.
-                </p>
-
-                <div class="modal-tags">
-                    <span>Vakkanjers</span>
-                    <span>Duurzaamheid</span>
-                    <span>Ontwerpen</span>
-                </div>
-
             </div>
 
         </div>
 
     </div>
-
-
-    <!-- MODAL PROJECT 3 -->
-    <div class="modal" id="modal2" aria-hidden="true">
-
-        <div class="modal-backdrop" data-close-modal></div>
-
-        <div class="modal-window">
-
-            <button
-                class="modal-close"
-                type="button"
-                data-close-modal
-                aria-label="Venster sluiten"
-            >
-                ×
-            </button>
-
-            <div class="modal-header">
-
-                <div class="modal-number">
-                    03
-                </div>
-
-                <div>
-                    <div class="modal-label">
-                        AQUALectra
-                    </div>
-
-                    <h2>
-                        Kantine inrichting
-                    </h2>
-                </div>
-
-            </div>
-
-            <div class="modal-body">
-
-                <p>
-                    Voor dit project heb ik onderzoek gedaan naar
-                    de inrichting van een kantine en de wensen en
-                    eisen die daarbij horen.
-                </p>
-
-                <p>
-                    Hieronder staan verschillende documenten uit
-                    het project.
-                </p>
-
-                <div class="document-list">
-
-                    <a
-                        href="pdf/aqaulectra/Onderzoek.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <span class="document-icon">PDF</span>
-                        <span>Onderzoek</span>
-                        <span>↗</span>
-                    </a>
-
-                    <a
-                        href="pdf/aqaulectra/eisen (1).pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <span class="document-icon">PDF</span>
-                        <span>Eisen</span>
-                        <span>↗</span>
-                    </a>
-
-                    <a
-                        href="pdf/aqaulectra/moodboard.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <span class="document-icon">PDF</span>
-                        <span>Moodboard</span>
-                        <span>↗</span>
-                    </a>
-
-                    <a
-                        href="pdf/aqaulectra/O&O Project Hub.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <span class="document-icon">PDF</span>
-                        <span>O&O Project Hub</span>
-                        <span>↗</span>
-                    </a>
-
-                    <a
-                        href="pdf/aqaulectra/logboek O&O.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <span class="document-icon">PDF</span>
-                        <span>Logboek O&O</span>
-                        <span>↗</span>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- MODAL PROJECT 4 -->
-    <div class="modal" id="modal3" aria-hidden="true">
-
-        <div class="modal-backdrop" data-close-modal></div>
-
-        <div class="modal-window">
-
-            <button
-                class="modal-close"
-                type="button"
-                data-close-modal
-                aria-label="Venster sluiten"
-            >
-                ×
-            </button>
-
-            <div class="modal-header">
-
-                <div class="modal-number">
-                    04
-                </div>
-
-                <div>
-                    <div class="modal-label">
-                        ZUIDERZEEMUSEUM
-                    </div>
-
-                    <h2>
-                        Blauwgroene algen
-                    </h2>
-                </div>
-
-            </div>
-
-            <div class="modal-body">
-
-                <p>
-                    Voor het Zuiderzeemuseum hebben we gekeken naar
-                    een manier om blauwgroene algen uit het water
-                    te verwijderen.
-                </p>
-
-                <p>
-                    Een onderdeel van het ontwerp was een machine
-                    die waterstofperoxide kan verspreiden om de
-                    algen te bestrijden.
-                </p>
-
-                <div class="modal-tags">
-                    <span>Onderzoek</span>
-                    <span>Techniek</span>
-                    <span>Water</span>
-                    <span>Ontwerpen</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- TERUG NAAR BOVEN -->
-    <button
-        class="back-to-top"
-        id="backToTop"
-        type="button"
-        aria-label="Terug naar boven"
-    >
-        ↑
-    </button>
 
 
     <script src="app.js"></script>
