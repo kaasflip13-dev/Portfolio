@@ -4,23 +4,38 @@
    ========================================================= */
 
 
-/* -------------------------
-   JAAR IN FOOTER
-------------------------- */
+/* =========================================================
+   JAAR
+   ========================================================= */
 
-const yearElement = document.getElementById("year");
+const year = document.getElementById("year");
 
-if (yearElement) {
-    yearElement.textContent = "© " + new Date().getFullYear();
+if (year) {
+    year.textContent = "© " + new Date().getFullYear();
 }
 
 
-/* -------------------------
+/* =========================================================
    MOBIEL MENU
-------------------------- */
+   ========================================================= */
 
-const menuButton = document.getElementById("menuButton");
-const navMenu = document.getElementById("navMenu");
+const menuButton =
+    document.getElementById("menuButton");
+
+const navMenu =
+    document.getElementById("navMenu");
+
+
+function closeMenu() {
+
+    if (!navMenu) {
+        return;
+    }
+
+    navMenu.classList.remove("open");
+
+}
+
 
 if (menuButton && navMenu) {
 
@@ -28,24 +43,14 @@ if (menuButton && navMenu) {
 
         navMenu.classList.toggle("open");
 
-        if (navMenu.classList.contains("open")) {
-            menuButton.textContent = "✕";
-        } else {
-            menuButton.textContent = "☰";
-        }
-
     });
 
 
-    const navLinks = navMenu.querySelectorAll("a");
-
-    navLinks.forEach(function (link) {
+    navMenu.querySelectorAll("a").forEach(function (link) {
 
         link.addEventListener("click", function () {
 
-            navMenu.classList.remove("open");
-
-            menuButton.textContent = "☰";
+            closeMenu();
 
         });
 
@@ -54,12 +59,80 @@ if (menuButton && navMenu) {
 }
 
 
-/* -------------------------
+/* =========================================================
+   NAVIGATIE ACTIVE LINK
+   ========================================================= */
+
+const sections =
+    document.querySelectorAll("main section[id]");
+
+const navLinks =
+    document.querySelectorAll(".nav-link");
+
+
+function updateActiveLink() {
+
+    let currentSection = "home";
+
+    const scrollPosition =
+        window.scrollY + 180;
+
+    sections.forEach(function (section) {
+
+        const sectionTop =
+            section.offsetTop;
+
+        const sectionHeight =
+            section.offsetHeight;
+
+        if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+        ) {
+
+            currentSection =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navLinks.forEach(function (link) {
+
+        const href =
+            link.getAttribute("href");
+
+        if (href === "#" + currentSection) {
+
+            link.classList.add("active");
+
+        } else {
+
+            link.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateActiveLink,
+    { passive: true }
+);
+
+updateActiveLink();
+
+
+/* =========================================================
    PROJECT MODALS
-------------------------- */
+   ========================================================= */
 
 const projectButtons =
-    document.querySelectorAll(".project-button");
+    document.querySelectorAll(".project-link");
 
 const modals =
     document.querySelectorAll(".modal");
@@ -77,14 +150,16 @@ function openModal(number) {
         return;
     }
 
+    closeMenu();
+
     modal.classList.add("show");
 
-    document.body.style.overflow = "hidden";
+    document.body.classList.add("modal-open");
 
 }
 
 
-function closeAllModals() {
+function closeModals() {
 
     modals.forEach(function (modal) {
 
@@ -92,41 +167,41 @@ function closeAllModals() {
 
     });
 
-    document.body.style.overflow = "";
+    document.body.classList.remove("modal-open");
 
 }
 
 
-/* Openen */
+/* OPEN */
 
 projectButtons.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
-        const projectNumber =
+        const project =
             button.getAttribute("data-project");
 
-        openModal(projectNumber);
+        openModal(project);
 
     });
 
 });
 
 
-/* Sluiten */
+/* CLOSE BUTTON */
 
 closeButtons.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
-        closeAllModals();
+        closeModals();
 
     });
 
 });
 
 
-/* Klik naast venster */
+/* CLICK OUTSIDE */
 
 modals.forEach(function (modal) {
 
@@ -134,7 +209,7 @@ modals.forEach(function (modal) {
 
         if (event.target === modal) {
 
-            closeAllModals();
+            closeModals();
 
         }
 
@@ -143,108 +218,183 @@ modals.forEach(function (modal) {
 });
 
 
-/* ESCAPE */
+/* ESC */
 
-document.addEventListener("keydown", function (event) {
+document.addEventListener(
+    "keydown",
+    function (event) {
 
-    if (event.key === "Escape") {
+        if (event.key === "Escape") {
 
-        closeAllModals();
+            closeModals();
+
+            closeMenu();
+
+        }
 
     }
+);
 
-});
 
-
-/* -------------------------
+/* =========================================================
    SMOOTH SCROLL
-------------------------- */
+   ========================================================= */
 
-document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(function (link) {
 
-    link.addEventListener("click", function (event) {
+    link.addEventListener(
+        "click",
+        function (event) {
 
-        const targetId =
-            link.getAttribute("href");
+            const targetId =
+                link.getAttribute("href");
 
-        if (
-            !targetId ||
-            targetId === "#"
-        ) {
-            return;
+            if (
+                !targetId ||
+                targetId === "#"
+            ) {
+                return;
+            }
+
+            const target =
+                document.querySelector(targetId);
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
         }
-
-        const target =
-            document.querySelector(targetId);
-
-        if (!target) {
-            return;
-        }
-
-        event.preventDefault();
-
-        target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-        });
-
-    });
-
-});
-
-
-/* -------------------------
-   KLEINE HOVER EFFECTEN
-------------------------- */
-
-const cards =
-    document.querySelectorAll(
-        ".project-card, .learning-card"
     );
 
-cards.forEach(function (card) {
+});
 
-    card.addEventListener("mouseenter", function () {
 
-        card.classList.add("hovered");
+/* =========================================================
+   SCROLL ANIMATIES
+   ========================================================= */
 
-    });
+const animatedElements =
+    document.querySelectorAll(
+        ".project-card, .learning-card, .about-card, .process"
+    );
 
-    card.addEventListener("mouseleave", function () {
 
-        card.classList.remove("hovered");
+animatedElements.forEach(function (element) {
 
-    });
+    element.classList.add("reveal");
 
 });
 
 
-/* -------------------------
-   ESCAPE VOOR MENU
-------------------------- */
+const observer =
+    new IntersectionObserver(
+        function (entries) {
 
-document.addEventListener("keydown", function (event) {
+            entries.forEach(function (entry) {
 
-    if (
-        event.key === "Escape" &&
-        navMenu
-    ) {
+                if (entry.isIntersecting) {
 
-        navMenu.classList.remove("open");
+                    entry.target.classList.add("visible");
 
-        if (menuButton) {
-            menuButton.textContent = "☰";
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+animatedElements.forEach(function (element) {
+
+    observer.observe(element);
+
+});
+
+
+/* =========================================================
+   PROJECT HOVER
+   ========================================================= */
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+
+projectCards.forEach(function (card) {
+
+    card.addEventListener(
+        "mouseenter",
+        function () {
+
+            card.classList.add("is-hovered");
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        function () {
+
+            card.classList.remove("is-hovered");
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   MENU BUITEN KLIKKEN
+   ========================================================= */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        if (!navMenu || !menuButton) {
+            return;
+        }
+
+        const clickedInsideMenu =
+            navMenu.contains(event.target);
+
+        const clickedButton =
+            menuButton.contains(event.target);
+
+        if (
+            navMenu.classList.contains("open") &&
+            !clickedInsideMenu &&
+            !clickedButton
+        ) {
+
+            closeMenu();
+
         }
 
     }
+);
 
-});
 
-
-/* -------------------------
-   STARTMELDING
-------------------------- */
+/* =========================================================
+   CONSOLE
+   ========================================================= */
 
 console.log(
-    "Ivan's O&O Portfolio is geladen!"
+    "Ivan's O&O portfolio is succesvol geladen!"
 );
